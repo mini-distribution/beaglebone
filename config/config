@@ -1,0 +1,58 @@
+# Build files configuration
+
+# Set host system name
+HOST="arm-cortex_a8-linux-gnueabi"
+
+# Make all cross builds depend on cross toolchain
+CROSS_DEPENDS=native/crosstool-ng
+
+# Set cross sysroot path
+CROSS_SYSROOT="$NATIVE_SYSROOT/$HOST/sysroot"
+
+# Add cross toolchain to build environment
+PATH="$NATIVE_SYSROOT/bin:$PATH"
+PATH="$NATIVE_SYSROOT/usr/bin:$PATH"
+
+# Set number of parallel make jobs
+JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
+
+# Pkg-config cross configuration
+if [ "$BUILD_TYPE" = "cross" ]; then
+   export PKG_CONFIG_DIR=
+   export PKG_CONFIG_PATH=
+   export PKG_CONFIG_LIBDIR="$CROSS_SYSROOT/usr/lib/pkgconfig"
+   export PKG_CONFIG_LIBDIR+=":$CROSS_SYSROOT/usr/share/pkgconfig"
+   export PKG_CONFIG_SYSROOT_DIR="$CROSS_SYSROOT"
+fi
+
+# Pkg-config native configuration
+if [ "$BUILD_TYPE" = "native" ]; then
+   export PKG_CONFIG_LIBDIR="$NATIVE_SYSROOT/usr/lib/pkgconfig"
+   export PKG_CONFIG_LIBDIR+=":`pkg-config --variable pc_path pkg-config`"
+fi
+
+# Helper functions
+
+fix_la_files()
+{
+   find $1 -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \; \
+                        -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
+}
+
+check_tool()
+{
+   type $1 &> /dev/null
+   if [ $? != 0 ]; then
+      echo "Failed ($1 is not found)"
+      exit 1
+   fi
+}
+
+check_exist()
+{
+   test -e $1 &> /dev/null
+   if [ $? != 0 ]; then
+      echo "Failed ($1 is not found)"
+      exit 1
+   fi
+}

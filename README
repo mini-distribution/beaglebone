@@ -1,0 +1,74 @@
+Name:
+
+   Beaglebone Mini Distribution
+
+About:
+
+   A GNU/Linux distribution for the Beaglebone (Black)
+
+Main features:
+
+   * Arm Cortex A8 optimized
+   * Glibc based toolchain
+   * Systemd init system
+   * GNU/Linux system utilities (no busybox)
+   * Ethernet support
+   * OpenSSH client/server
+
+Main builds:
+
+   fs      - Filesystem
+   linux   - Linux kernel
+   u-boot  - Bootloader
+
+Quick build guide:
+
+   buildgear build fs
+   buildgear build u-boot
+
+Build system requirements:
+
+   Tested on Ubuntu 12.04 Minimal (64-bit x86) with the following additional
+   packages installed:
+
+   $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
+                          libtool automake libncurses5-dev gawk libexpat1-dev \
+                          gettext u-boot-tools libglib2.0-dev intltool
+
+
+   Also requires reconfiguring "/bin/sh" to use bash:
+
+   $ sudo dpkg-reconfigure dash
+
+   Fact: many software distributions fail to build using the dash shell.
+
+Known issues:
+
+   - HDMI ouput has horizontal "jiggle" of a few pixels. Seems to be a known issue:
+     https://groups.google.com/forum/#!msg/beagleboard/BrifdOucDTw/5oMD9NxYHq0J
+
+   - Kernel cannot be compiled in Thumb2 mode. This is a bug in binutils 2.22
+
+Filesystem layout:
+
+   /usr/bin/            User binaries
+   /usr/sbin/           System binaries (daemons, system utilities, etc.)
+   /usr/lib/            Libraries
+   /usr/lib/<prog>/     Program specific libraries (plug-ins, addons, etc.)
+   /usr/include/        Header files
+   /usr/share/man/      Man pages
+   /usr/share/<prog>/   Program data files shared across all architectures
+   /usr/etc/<prog>/     Configuration files for user programs
+   /etc/                Configuration files for system programs
+
+   The filesystem directory hierachy is arranged according to the FHS 2.3
+   standard with the exceptions that /bin and /sbin are unused. Instead all
+   software make use of /usr/bin and /usr/sbin. For backwards compatibility
+   /bin and /sbin remain links to /usr/bin and /usr/sbin respectively.
+   
+   See http://www.pathname.com/fhs/pub/fhs-2.3.html for more details.
+
+Maintainer:
+
+   Witold Pietraszek <witold.pietraszek@ixonos.com>
+   Martin Lund <martin.lund@ixonos.com>

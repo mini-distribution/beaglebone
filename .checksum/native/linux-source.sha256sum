@@ -1,7 +1,7 @@
 242130b499a0b113c7d698a1d240611a2660aad62b36a1d03487eb600494c50a  0001-patch.sh-Use-patch-instead-of-git-to-apply.patch
 e812a1953804fcc7677c07dab4a30a24822bfacf872ec8f345f5f267d77b0b8b  am335x-bone-enable-adc-and-pwm-in-dts.patch
-4a7f9340b26493156805b24bcb061942918f5b4bf608f0ce9d3b5c6318f87a01  am335x-patches-linux-3.8.12-bone17.tar.xz
+ac6e22573f74540eb286c71e3d2a5ca9a40bbc26c7cbebf1113dee69177dae70  am335x-patches-linux-3.8.13-bone20.tar.xz
 717a729ea419415a6991f854d8b7007c602debd547b00bad07ea42b8eb9dae91  am335x-pm-firmware.bin
-1b57f3cea4b4d7910a2c216111b93dca86ba1008a3f13921a03192f5dba60f26  beaglebone.config
+3493ceb20e25281e947eb9ee10aad7c5c498a7ae42df14fb53919103c0f81604  beaglebone.config
 ddfe3fc337c53610ea07618ebcc6dfbbf7a575cf119341b183674be3c4732f58  fix-pwm-test-compilation.patch
-bbfe2fec2777dd430840298588f56b748d04baa4ed5df3968b4c1bda59af11ee  linux-3.8.12.tar.xz
+7cd135cc1791680553cc40bf23ce11ab24b84a3ece33d810950e089090d4f65f  linux-3.8.13.tar.xz

@@ -28884,6 +28884,7 @@ drwxrwxr-x	root/root	usr/src/linux/drivers/remoteproc/
 -rw-rw-r--	root/root	usr/src/linux/drivers/remoteproc/Makefile
 -rw-rw-r--	root/root	usr/src/linux/drivers/remoteproc/omap_remoteproc.c
 -rw-rw-r--	root/root	usr/src/linux/drivers/remoteproc/omap_remoteproc.h
+-rw-r--r--	root/root	usr/src/linux/drivers/remoteproc/pru_rproc.c
 -rw-rw-r--	root/root	usr/src/linux/drivers/remoteproc/remoteproc_core.c
 -rw-rw-r--	root/root	usr/src/linux/drivers/remoteproc/remoteproc_debugfs.c
 -rw-rw-r--	root/root	usr/src/linux/drivers/remoteproc/remoteproc_elf_loader.c
@@ -34050,9 +34051,13 @@ drwxr-xr-x	root/root	usr/src/linux/firmware/capes/
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-LCD7-01-00A3.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-LCD7-01-00A4.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONELT-BT-00A0.dts
+-rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-PRU-01-00A0.dts
+-rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-PRU-02-00A0.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-PWMT-00A0.dts
+-rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-RS232-00A0.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-RST-00A0.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-RST2-00A0.dts
+-rw-r--r--	root/root	usr/src/linux/firmware/capes/BB-BONE-SERL-01-00A1.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/bone_pwm_P8_13-00A0.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/bone_pwm_P8_19-00A0.dts
 -rw-r--r--	root/root	usr/src/linux/firmware/capes/bone_pwm_P8_34-00A0.dts
@@ -34164,7 +34169,6 @@ drwxrwxr-x	root/root	usr/src/linux/firmware/keyspan_pda/
 drwxrwxr-x	root/root	usr/src/linux/firmware/korg/
 -rw-rw-r--	root/root	usr/src/linux/firmware/korg/k1212.dsp.ihex
 -rw-rw-r--	root/root	usr/src/linux/firmware/Makefile
--rw-rw-r--	root/root	usr/src/linux/firmware/Makefile.orig
 drwxrwxr-x	root/root	usr/src/linux/firmware/matrox/
 -rw-rw-r--	root/root	usr/src/linux/firmware/matrox/g200_warp.H16
 -rw-rw-r--	root/root	usr/src/linux/firmware/matrox/g400_warp.H16

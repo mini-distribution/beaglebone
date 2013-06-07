@@ -1,4 +1,7 @@
 lrwxrwxrwx	root/root	bin -> /usr/bin
+drwxr-xr-x	root/root	boot/
+-rw-r--r--	root/root	boot/System.map
+-rwxr-xr-x	root/root	boot/vmlinux
 drwxr-xr-x	root/root	dev/
 drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/binfmt.d/
@@ -62,8 +65,6 @@ drwxr-xr-x	root/root	etc/systemd/
 -rw-r--r--	root/root	etc/systemd/logind.conf
 drwxr-xr-x	root/root	etc/systemd/ntp-units.d/
 drwxr-xr-x	root/root	etc/systemd/system/
-drwxr-xr-x	root/root	etc/systemd/system/basic.target.wants/
-lrwxrwxrwx	root/root	etc/systemd/system/basic.target.wants/kmod-depmod.service -> /etc/systemd/system/kmod-depmod.service
 -rw-r--r--	root/root	etc/systemd/system.conf
 -rw-r--r--	root/root	etc/systemd/system/connman.service
 -rw-r--r--	root/root	etc/systemd/system/dbus.service
@@ -72,7 +73,6 @@ drwxr-xr-x	root/root	etc/systemd/system/dbus.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/dbus.target.wants/dbus.socket -> ../dbus.socket
 drwxr-xr-x	root/root	etc/systemd/system/getty.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/getty.target.wants/getty@tty1.service -> /usr/lib/systemd/system/getty@.service
--rw-r--r--	root/root	etc/systemd/system/kmod-depmod.service
 drwxr-xr-x	root/root	etc/systemd/system/multi-user.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/dbus.service -> ../dbus.service
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/remote-fs.target -> /usr/lib/systemd/system/remote-fs.target
@@ -1796,9 +1796,9 @@ lrwxrwxrwx	root/root	usr/lib/libipq.so -> libipq.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libiptc.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libiptc.so.0 -> libiptc.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libiptc.so -> libiptc.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libkmod.so.2.2.2
-lrwxrwxrwx	root/root	usr/lib/libkmod.so.2 -> libkmod.so.2.2.2
-lrwxrwxrwx	root/root	usr/lib/libkmod.so -> libkmod.so.2.2.2
+-rwxr-xr-x	root/root	usr/lib/libkmod.so.2.2.3
+lrwxrwxrwx	root/root	usr/lib/libkmod.so.2 -> libkmod.so.2.2.3
+lrwxrwxrwx	root/root	usr/lib/libkmod.so -> libkmod.so.2.2.3
 -rwxr-xr-x	root/root	usr/lib/libmenu.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libmenu.so.5 -> libmenu.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libmenu.so -> libmenu.so.5
@@ -11357,6 +11357,9 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/z8a.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/zsh.vim
 -rw-r--r--	root/root	usr/share/vim/vimrc
+drwxr-xr-x	root/root	usr/src/
+drwxr-xr-x	root/root	usr/src/linux/
+-rw-r--r--	root/root	usr/src/linux/Module.symvers
 lrwxrwxrwx	root/root	usr/var -> ../var
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/db/

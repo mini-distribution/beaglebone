@@ -1,3 +1,6 @@
+drwxr-xr-x	root/root	boot/
+-rw-r--r--	root/root	boot/System.map
+-rwxr-xr-x	root/root	boot/vmlinux
 drwxr-xr-x	root/root	lib/
 drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/am33xx_pwm-00A0.dtbo
@@ -746,3 +749,7 @@ drwxr-xr-x	root/root	lib/modules/3.8.13/kernel/sound/usb/misc/
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.symbols
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.symbols.bin
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.usbmap
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/src/
+drwxr-xr-x	root/root	usr/src/linux/
+-rw-r--r--	root/root	usr/src/linux/Module.symvers

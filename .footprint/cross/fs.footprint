@@ -5,6 +5,8 @@ drwxr-xr-x	root/root	boot/
 drwxr-xr-x	root/root	dev/
 drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/binfmt.d/
+drwxr-xr-x	root/root	etc/connman/
+-rw-r--r--	root/root	etc/connman/main.conf
 drwxr-xr-x	root/root	etc/cron/
 drwxr-xr-x	root/root	etc/cron/daily/
 -rwxr-xr-x	root/root	etc/cron/daily/makewhatis
@@ -66,7 +68,6 @@ drwxr-xr-x	root/root	etc/systemd/
 drwxr-xr-x	root/root	etc/systemd/ntp-units.d/
 drwxr-xr-x	root/root	etc/systemd/system/
 -rw-r--r--	root/root	etc/systemd/system.conf
--rw-r--r--	root/root	etc/systemd/system/connman.service
 -rw-r--r--	root/root	etc/systemd/system/dbus.service
 -rw-r--r--	root/root	etc/systemd/system/dbus.socket
 drwxr-xr-x	root/root	etc/systemd/system/dbus.target.wants/
@@ -101,10 +102,16 @@ lrwxrwxrwx	root/root	lib32 -> lib
 lrwxrwxrwx	root/root	lib64 -> lib
 drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/am33xx_pwm-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-ADC-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-AUDI-01-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-BACON-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-BACONE-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-BACONE2-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-CAM3-01-00A2.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-CAM-VVDN-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-eMMC1-01-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-GPEVT-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-GPS-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-LCD4-01-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-LCD4-01-00A1.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-LCD7-01-00A2.dtbo
@@ -113,11 +120,25 @@ drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/BB-BONELT-BT-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-PRU-01-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-PRU-02-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-PRU-03-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-PRU-04-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-PWMT-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-RS232-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-RST-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-RST2-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-RTC-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-BONE-SERL-01-00A1.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-BONE-SERL-03-00A1.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-GPIOHELP-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-I2C1-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-I2C1A1-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-SPIDEV0-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-SPIDEV1-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-SPIDEV1A1-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-UART1-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-UART2-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-UART4-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-UART5-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P8_13-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P8_19-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P8_34-00A0.dtbo
@@ -132,10 +153,13 @@ drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P9_29-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P9_31-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P9_42-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-bebopr-brdg-R2.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-bebopr-ena-R2.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-bebopr-R2.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-2g-emmc1.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-adafruit-lcd-00A0.dtbo
--rw-r--r--	root/root	lib/firmware/cape-bone-adafruit-rtc-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-boneblack-hdmi-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-boneblack-hdmin-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-dvi-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-dvi-00A1.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-dvi-00A2.dtbo
@@ -148,14 +172,22 @@ drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/cape-bone-mrf24j40-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-nixie-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-pinmux-test-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-bone-replicape-00A2.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-bone-replicape-00A3.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-tester-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-weather-00A0.dtbo
 drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/am33xx_pwm-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-ADC-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-AUDI-01-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-BACON-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-BACONE-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-BACONE2-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-CAM3-01-00A2.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-CAM-VVDN-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-eMMC1-01-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-GPEVT-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-GPS-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-LCD4-01-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-LCD4-01-00A1.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-LCD7-01-00A2.dts
@@ -164,11 +196,25 @@ drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONELT-BT-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-PRU-01-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-PRU-02-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-PRU-03-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-PRU-04-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-PWMT-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-RS232-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-RST-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-RST2-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-RTC-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-BONE-SERL-01-00A1.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-BONE-SERL-03-00A1.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-GPIOHELP-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-I2C1-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-I2C1A1-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-SPIDEV0-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-SPIDEV1-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-SPIDEV1A1-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-UART1-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-UART2-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-UART4-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-UART5-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P8_13-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P8_19-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P8_34-00A0.dts
@@ -183,10 +229,14 @@ drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P9_29-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P9_31-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P9_42-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bebopr-brdg-R2.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bebopr-ena-R2.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bebopr-R2.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-2g-emmc1.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-adafruit-lcd-00A0.dts
--rw-r--r--	root/root	lib/firmware/capes/cape-bone-adafruit-rtc-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bone-argus-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-boneblack-hdmi-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-boneblack-hdmin-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-dvi-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-dvi-00A1.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-dvi-00A2.dts
@@ -199,8 +249,13 @@ drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-mrf24j40-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-nixie-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-pinmux-test-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bone-replicape-00A2.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bone-replicape-00A3.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-tester-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-weather-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/DNIL-AMPCAPE-1-00R1.dts
+-rw-r--r--	root/root	lib/firmware/capes/TT3201-001-01.dts
+-rw-r--r--	root/root	lib/firmware/DNIL-AMPCAPE-1-00R1.dtbo
 drwxr-xr-x	root/root	lib/firmware/edgeport/
 -rw-r--r--	root/root	lib/firmware/edgeport/boot2.fw
 -rw-r--r--	root/root	lib/firmware/edgeport/boot.fw
@@ -223,16 +278,49 @@ drwxr-xr-x	root/root	lib/firmware/keyspan_pda/
 -rw-r--r--	root/root	lib/firmware/mts_edge.fw
 -rw-r--r--	root/root	lib/firmware/mts_gsm.fw
 -rw-r--r--	root/root	lib/firmware/rt2870.bin
-lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/ubuntu/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
+lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/ubuntu/projects/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
 -rw-r--r--	root/root	lib/firmware/ti_3410.fw
 -rw-r--r--	root/root	lib/firmware/ti_5052.fw
+-rw-r--r--	root/root	lib/firmware/TT3201-001-01.dtbo
 -rw-r--r--	root/root	lib/firmware/whiteheat.fw
 -rw-r--r--	root/root	lib/firmware/whiteheat_loader.fw
 -rwxr-xr-x	root/root	lib/ld-2.17.so
 lrwxrwxrwx	root/root	lib/ld-linux-armhf.so.3 -> ld-2.17.so
 lrwxrwxrwx	root/root	lib/ld-linux.so.3 -> ld-linux-armhf.so.3
+drwxr-xr-x	root/root	lib/ldscripts/
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.x
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xbn
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xc
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xd
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xdc
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xdw
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xn
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xr
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xs
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xsc
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xsw
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xu
+-rw-r--r--	root/root	lib/ldscripts/armelfb_linux_eabi.xw
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.x
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xbn
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xc
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xd
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xdc
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xdw
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xn
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xr
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xs
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xsc
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xsw
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xu
+-rw-r--r--	root/root	lib/ldscripts/armelf_linux_eabi.xw
 -rwxr-xr-x	root/root	lib/libanl-2.17.so
 lrwxrwxrwx	root/root	lib/libanl.so.1 -> libanl-2.17.so
+-rw-r--r--	root/root	lib/libatomic.a
+-rwxr-xr-x	root/root	lib/libatomic.la
+-rwxr-xr-x	root/root	lib/libatomic.so.1.0.0
+lrwxrwxrwx	root/root	lib/libatomic.so.1 -> libatomic.so.1.0.0
+lrwxrwxrwx	root/root	lib/libatomic.so -> libatomic.so.1.0.0
 -rwxr-xr-x	root/root	lib/libBrokenLocale-2.17.so
 lrwxrwxrwx	root/root	lib/libBrokenLocale.so.1 -> libBrokenLocale-2.17.so
 -rwxr-xr-x	root/root	lib/libc-2.17.so
@@ -278,10 +366,10 @@ lrwxrwxrwx	root/root	lib/librt.so.1 -> librt-2.17.so
 -rwxr-xr-x	root/root	lib/libSegFault.so
 -rw-r--r--	root/root	lib/libstdc++.a
 -rwxr-xr-x	root/root	lib/libstdc++.la
--rwxr-xr-x	root/root	lib/libstdc++.so.6.0.17
--rw-r--r--	root/root	lib/libstdc++.so.6.0.17-gdb.py
-lrwxrwxrwx	root/root	lib/libstdc++.so.6 -> libstdc++.so.6.0.17
-lrwxrwxrwx	root/root	lib/libstdc++.so -> libstdc++.so.6.0.17
+-rwxr-xr-x	root/root	lib/libstdc++.so.6.0.18
+-rw-r--r--	root/root	lib/libstdc++.so.6.0.18-gdb.py
+lrwxrwxrwx	root/root	lib/libstdc++.so.6 -> libstdc++.so.6.0.18
+lrwxrwxrwx	root/root	lib/libstdc++.so -> libstdc++.so.6.0.18
 -rw-r--r--	root/root	lib/libsupc++.a
 -rwxr-xr-x	root/root	lib/libsupc++.la
 -rwxr-xr-x	root/root	lib/libthread_db-1.0.so
@@ -1708,8 +1796,8 @@ lrwxrwxrwx	root/root	usr/lib/libanl.so -> ../../lib/libanl.so.1
 -rw-r--r--	root/root	usr/lib/libattr.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libattr.so.1 -> libattr.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libattr.so -> libattr.so.1
--rwxr-xr-x	root/root	usr/lib/libbfd-2.22.so
-lrwxrwxrwx	root/root	usr/lib/libbfd.so -> libbfd-2.22.so
+-rwxr-xr-x	root/root	usr/lib/libbfd-2.23.1.so
+lrwxrwxrwx	root/root	usr/lib/libbfd.so -> libbfd-2.23.1.so
 -rwxr-xr-x	root/root	usr/lib/libblkid.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libblkid.so.1 -> libblkid.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libblkid.so -> libblkid.so.1.1.0
@@ -1781,9 +1869,9 @@ lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.3
 -r-xr-xr-x	root/root	usr/lib/libhistory.so.6.2
 lrwxrwxrwx	root/root	usr/lib/libhistory.so.6 -> libhistory.so.6.2
 lrwxrwxrwx	root/root	usr/lib/libhistory.so -> libhistory.so.6
--rw-r--r--	root/root	usr/lib/libhogweed.so.2.4
-lrwxrwxrwx	root/root	usr/lib/libhogweed.so.2 -> libhogweed.so.2.4
-lrwxrwxrwx	root/root	usr/lib/libhogweed.so -> libhogweed.so.2.4
+-rw-r--r--	root/root	usr/lib/libhogweed.so.2.5
+lrwxrwxrwx	root/root	usr/lib/libhogweed.so.2 -> libhogweed.so.2.5
+lrwxrwxrwx	root/root	usr/lib/libhogweed.so -> libhogweed.so.2.5
 -rwxr-xr-x	root/root	usr/lib/libip4tc.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libip4tc.so.0 -> libip4tc.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libip4tc.so -> libip4tc.so.0.1.0
@@ -1809,17 +1897,17 @@ lrwxrwxrwx	root/root	usr/lib/libm.so -> ../../lib/libm.so.6
 -rwxr-xr-x	root/root	usr/lib/libncurses.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libncurses.so.5 -> libncurses.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libncurses.so -> libncurses.so.5
--rw-r--r--	root/root	usr/lib/libnettle.so.4.6
-lrwxrwxrwx	root/root	usr/lib/libnettle.so.4 -> libnettle.so.4.6
-lrwxrwxrwx	root/root	usr/lib/libnettle.so -> libnettle.so.4.6
+-rw-r--r--	root/root	usr/lib/libnettle.so.4.7
+lrwxrwxrwx	root/root	usr/lib/libnettle.so.4 -> libnettle.so.4.7
+lrwxrwxrwx	root/root	usr/lib/libnettle.so -> libnettle.so.4.7
 drwxr-xr-x	root/root	usr/lib/libnl/
--rwxr-xr-x	root/root	usr/lib/libnl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-3.so.200 -> libnl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-3.so -> libnl-3.so.200.17.0
+-rwxr-xr-x	root/root	usr/lib/libnl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-3.so.200 -> libnl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-3.so -> libnl-3.so.200.18.0
 drwxr-xr-x	root/root	usr/lib/libnl/cli/
--rwxr-xr-x	root/root	usr/lib/libnl-cli-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so -> libnl-cli-3.so.200.17.0
+-rwxr-xr-x	root/root	usr/lib/libnl-cli-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so -> libnl-cli-3.so.200.18.0
 drwxr-xr-x	root/root	usr/lib/libnl/cli/cls/
 -rw-r--r--	root/root	usr/lib/libnl/cli/cls/basic.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/cls/basic.la
@@ -1843,15 +1931,18 @@ drwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/
 -rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/plug.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/plug.la
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/plug.so
--rwxr-xr-x	root/root	usr/lib/libnl-genl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so -> libnl-genl-3.so.200.17.0
--rwxr-xr-x	root/root	usr/lib/libnl-nf-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so -> libnl-nf-3.so.200.17.0
--rwxr-xr-x	root/root	usr/lib/libnl-route-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.17.0
-lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so -> libnl-route-3.so.200.17.0
+-rwxr-xr-x	root/root	usr/lib/libnl-genl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so -> libnl-genl-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-idiag-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so.200 -> libnl-idiag-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so -> libnl-idiag-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-nf-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so -> libnl-nf-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-route-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.18.0
+lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so -> libnl-route-3.so.200.18.0
 lrwxrwxrwx	root/root	usr/lib/libnsl.so -> ../../lib/libnsl.so.1
 lrwxrwxrwx	root/root	usr/lib/libnss_compat.so -> ../../lib/libnss_compat.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_db.so -> ../../lib/libnss_db.so.2
@@ -1989,6 +2080,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/basic.target
 -rw-r--r--	root/root	usr/lib/systemd/system/bluetooth.target
+-rw-r--r--	root/root	usr/lib/systemd/system/connman.service
 -rw-r--r--	root/root	usr/lib/systemd/system/console-getty.service
 -rw-r--r--	root/root	usr/lib/systemd/system/console-shell.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/ctrl-alt-del.target -> reboot.target
@@ -2376,6 +2468,7 @@ drwxr-xr-x	root/root	usr/lib/xtables/
 -rwxr-xr-x	root/root	usr/lib/xtables/libipt_unclean.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_addrtype.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_AUDIT.so
+-rwxr-xr-x	root/root	usr/lib/xtables/libxt_bpf.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_CHECKSUM.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_CLASSIFY.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_cluster.so
@@ -10243,6 +10336,7 @@ drwxr-xr-x	root/root	usr/share/vim/autoload/
 -rw-r--r--	root/root	usr/share/vim/autoload/adacomplete.vim
 -rw-r--r--	root/root	usr/share/vim/autoload/ada.vim
 -rw-r--r--	root/root	usr/share/vim/autoload/ccomplete.vim
+-rw-r--r--	root/root	usr/share/vim/autoload/clojurecomplete.vim
 -rw-r--r--	root/root	usr/share/vim/autoload/csscomplete.vim
 -rw-r--r--	root/root	usr/share/vim/autoload/decada.vim
 -rw-r--r--	root/root	usr/share/vim/autoload/getscript.vim
@@ -10308,6 +10402,7 @@ drwxr-xr-x	root/root	usr/share/vim/compiler/
 -rw-r--r--	root/root	usr/share/vim/compiler/cucumber.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/decada.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/dot.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/erlang.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/eruby.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_cv.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_elf90.vim
@@ -10315,10 +10410,14 @@ drwxr-xr-x	root/root	usr/share/vim/compiler/
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_g77.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fortran_lf95.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/fpc.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/g95.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/gcc.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/gfortran.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/gnat.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/haml.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/hp_acc.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/icc.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/ifort.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/intel.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/irix5_cpp.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/irix5_c.vim
@@ -10329,22 +10428,27 @@ drwxr-xr-x	root/root	usr/share/vim/compiler/
 -rw-r--r--	root/root	usr/share/vim/compiler/mipspro_c89.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/mipspro_cpp.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/modelsim_vcom.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/msbuild.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/msvc.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/neato.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/ocaml.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/onsgmls.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/pbx.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/perl.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/php.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/pyunit.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/rake.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/rspec.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/rst.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/rubyunit.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/ruby.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/sass.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/se.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/splint.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/tcl.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/tex.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/tidy.vim
+-rw-r--r--	root/root	usr/share/vim/compiler/xbuild.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/xmllint.vim
 -rw-r--r--	root/root	usr/share/vim/compiler/xmlwf.vim
 -rw-r--r--	root/root	usr/share/vim/delmenu.vim
@@ -10488,6 +10592,7 @@ drwxr-xr-x	root/root	usr/share/vim/doc/
 drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/a2ps.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/aap.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/abap.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/abaqus.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/ada.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/alsaconf.vim
@@ -10503,6 +10608,7 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/cdrdaoconf.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/changelog.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/ch.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/clojure.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/cobol.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/config.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/conf.vim
@@ -10523,13 +10629,16 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/dictdconf.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/diff.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/dircolors.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/docbk.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/dosbatch.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/dosini.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/dtd.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/dtrace.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/elinks.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/erlang.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/eruby.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/eterm.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/falcon.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/fetchmail.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/flexwiki.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/fortran.vim
@@ -10541,6 +10650,7 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/gitsendemail.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/git.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/gpg.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/gprof.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/group.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/grub.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/haml.vim
@@ -10641,6 +10751,8 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/tcsh.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/terminfo.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/tex.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/treetop.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/tt2html.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/udevconf.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/udevperm.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/udevrules.vim
@@ -10660,6 +10772,7 @@ drwxr-xr-x	root/root	usr/share/vim/ftplugin/
 -rw-r--r--	root/root	usr/share/vim/ftplugin/xslt.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/xs.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/yaml.vim
+-rw-r--r--	root/root	usr/share/vim/ftplugin/zimbu.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugin/zsh.vim
 -rw-r--r--	root/root	usr/share/vim/ftplugof.vim
 -rw-r--r--	root/root	usr/share/vim/gvimrc_example.vim
@@ -10675,6 +10788,7 @@ drwxr-xr-x	root/root	usr/share/vim/indent/
 -rw-r--r--	root/root	usr/share/vim/indent/chaiscript.vim
 -rw-r--r--	root/root	usr/share/vim/indent/changelog.vim
 -rw-r--r--	root/root	usr/share/vim/indent/ch.vim
+-rw-r--r--	root/root	usr/share/vim/indent/clojure.vim
 -rw-r--r--	root/root	usr/share/vim/indent/cmake.vim
 -rw-r--r--	root/root	usr/share/vim/indent/cobol.vim
 -rw-r--r--	root/root	usr/share/vim/indent/config.vim
@@ -10695,9 +10809,11 @@ drwxr-xr-x	root/root	usr/share/vim/indent/
 -rw-r--r--	root/root	usr/share/vim/indent/erlang.vim
 -rw-r--r--	root/root	usr/share/vim/indent/eruby.vim
 -rw-r--r--	root/root	usr/share/vim/indent/eterm.vim
+-rw-r--r--	root/root	usr/share/vim/indent/falcon.vim
 -rw-r--r--	root/root	usr/share/vim/indent/fortran.vim
 -rw-r--r--	root/root	usr/share/vim/indent/framescript.vim
 -rw-r--r--	root/root	usr/share/vim/indent/gitconfig.vim
+-rw-r--r--	root/root	usr/share/vim/indent/gitolite.vim
 -rw-r--r--	root/root	usr/share/vim/indent/haml.vim
 -rw-r--r--	root/root	usr/share/vim/indent/hamster.vim
 -rw-r--r--	root/root	usr/share/vim/indent/htmldjango.vim
@@ -10734,6 +10850,7 @@ drwxr-xr-x	root/root	usr/share/vim/indent/
 -rw-r--r--	root/root	usr/share/vim/indent/rpl.vim
 -rw-r--r--	root/root	usr/share/vim/indent/rst.vim
 -rw-r--r--	root/root	usr/share/vim/indent/ruby.vim
+-rw-r--r--	root/root	usr/share/vim/indent/r.vim
 -rw-r--r--	root/root	usr/share/vim/indent/sass.vim
 -rw-r--r--	root/root	usr/share/vim/indent/scheme.vim
 -rw-r--r--	root/root	usr/share/vim/indent/scss.vim
@@ -10744,8 +10861,10 @@ drwxr-xr-x	root/root	usr/share/vim/indent/
 -rw-r--r--	root/root	usr/share/vim/indent/sql.vim
 -rw-r--r--	root/root	usr/share/vim/indent/tcl.vim
 -rw-r--r--	root/root	usr/share/vim/indent/tcsh.vim
+-rw-r--r--	root/root	usr/share/vim/indent/tex.vim
 -rw-r--r--	root/root	usr/share/vim/indent/tf.vim
 -rw-r--r--	root/root	usr/share/vim/indent/tilde.vim
+-rw-r--r--	root/root	usr/share/vim/indent/treetop.vim
 -rw-r--r--	root/root	usr/share/vim/indent/vb.vim
 -rw-r--r--	root/root	usr/share/vim/indent/verilog.vim
 -rw-r--r--	root/root	usr/share/vim/indent/vhdl.vim
@@ -10758,6 +10877,8 @@ drwxr-xr-x	root/root	usr/share/vim/indent/
 -rw-r--r--	root/root	usr/share/vim/indent/xsd.vim
 -rw-r--r--	root/root	usr/share/vim/indent/xslt.vim
 -rw-r--r--	root/root	usr/share/vim/indent/yacc.vim
+-rw-r--r--	root/root	usr/share/vim/indent/yaml.vim
+-rw-r--r--	root/root	usr/share/vim/indent/zimbu.vim
 -rw-r--r--	root/root	usr/share/vim/indent/zsh.vim
 -rw-r--r--	root/root	usr/share/vim/indoff.vim
 -rw-r--r--	root/root	usr/share/vim/menu.vim
@@ -10820,6 +10941,7 @@ drwxr-xr-x	root/root	usr/share/vim/spell/
 -rw-r--r--	root/root	usr/share/vim/spell/en.utf-8.sug
 -rw-r--r--	root/root	usr/share/vim/spell/fixdup.vim
 -rw-r--r--	root/root	usr/share/vim/spell/he.vim
+-rw-r--r--	root/root	usr/share/vim/spell/spell.vim
 -rw-r--r--	root/root	usr/share/vim/spell/yi.vim
 -rw-r--r--	root/root	usr/share/vim/synmenu.vim
 drwxr-xr-x	root/root	usr/share/vim/syntax/
@@ -10843,8 +10965,10 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/ant.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/apachestyle.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/apache.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/aptconf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/arch.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/art.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/asciidoc.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/asm68k.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/asmh8300.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/asm.vim
@@ -10889,6 +11013,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/ch.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/clean.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/clipper.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/clojure.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/cl.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/cmake.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/cmusrc.vim
@@ -10903,6 +11028,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/crm.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/crontab.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/csc.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/csdl.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/csh.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/csp.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/css.vim
@@ -10933,8 +11059,10 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/dictdconf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/diff.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/dircolors.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/dirpager.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/diva.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/django.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/dnsmasq.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/dns.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/docbksgml.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/docbk.vim
@@ -10948,6 +11076,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/dtd.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/dtml.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/dtrace.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/dts.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/d.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/dylanintr.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/dylanlid.vim
@@ -10968,6 +11097,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/exim.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/expect.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/exports.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/falcon.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/fan.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/fasm.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/fdcc.vim
@@ -10989,12 +11119,15 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/gedcom.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gitcommit.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gitconfig.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/gitolite.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gitrebase.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gitsendemail.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/git.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gkrellmrc.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/gnash.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gnuplot.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gpg.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/gprof.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gp.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/grads.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/gretl.vim
@@ -11013,9 +11146,11 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/help.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/hercules.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/hex.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/hgcommit.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/hitest.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/hog.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/hostconf.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/hostsaccess.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/htmlcheetah.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/htmldjango.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/htmlm4.vim
@@ -11044,6 +11179,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/java.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/jess.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/jgraph.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/jovial.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/jproperties.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/jsp.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/kconfig.vim
@@ -11083,6 +11219,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/mailcap.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/mail.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/make.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/mallard.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/manconf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/manual.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/man.vim
@@ -11127,6 +11264,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/ncf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/netrc.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/netrw.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/ninja.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/nosyntax.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/nqc.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/nroff.vim
@@ -11159,6 +11297,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/pine.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/pinfo.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/plaintex.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/pli.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/plm.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/plp.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/plsql.vim
@@ -11176,6 +11315,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/prolog.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/promela.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/protocols.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/proto.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/psf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/ptcap.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/purifylog.vim
@@ -11191,6 +11331,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/rc.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/readline.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/rebol.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/redif.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/registry.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/remind.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/resolv.vim
@@ -11199,6 +11340,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/rhelp.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/rib.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/rnc.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/rng.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/rnoweb.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/robots.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/rpcgen.vim
@@ -11261,6 +11403,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/spyce.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/sqlanywhere.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/sqlforms.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/sqlhana.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/sqlinformix.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/sqlj.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/sqloracle.vim
@@ -11301,17 +11444,27 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/tli.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/tpp.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/trasys.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/treetop.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/trustees.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/tsalt.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/tsscl.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/tssgm.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/tssop.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/tt2html.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/tt2js.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/tt2.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/uc.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/udevconf.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/udevperm.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/udevrules.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/uil.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/updatedb.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/upstart.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/upstreamdat.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/upstreaminstalllog.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/upstreamlog.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/usserverlog.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/usw2kagtlog.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/valgrind.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/vb.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/vera.vim
@@ -11355,6 +11508,7 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/yacc.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/yaml.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/z8a.vim
+-rw-r--r--	root/root	usr/share/vim/syntax/zimbu.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/zsh.vim
 -rw-r--r--	root/root	usr/share/vim/vimrc
 drwxr-xr-x	root/root	usr/src/

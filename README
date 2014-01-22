@@ -44,9 +44,6 @@ Build system requirements:
 
 Known issues:
 
-   - HDMI ouput has horizontal "jiggle" of a few pixels. Seems to be a known issue:
-     https://groups.google.com/forum/#!msg/beagleboard/BrifdOucDTw/5oMD9NxYHq0J
-
    - Kernel cannot be compiled in Thumb2 mode. This is a bug in binutils 2.22
 
 Filesystem layout:

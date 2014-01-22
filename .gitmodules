@@ -9,8 +9,8 @@
 	url = git://github.com/mini-distribution/cross-core.git
 [submodule "buildfiles/cross/cross-beaglebone"]
 	path = buildfiles/cross/cross-beaglebone
-#	url = git://github.com/mini-distribution/cross-beaglebone.git
-    url = git@github.com:mini-distribution/cross-beaglebone.git
+	url = git://github.com/mini-distribution/cross-beaglebone.git
+#    url = git@github.com:mini-distribution/cross-beaglebone.git
 [submodule "buildfiles/native/native-beaglebone"]
 	path = buildfiles/native/native-beaglebone
 	url = git://github.com/mini-distribution/native-beaglebone.git

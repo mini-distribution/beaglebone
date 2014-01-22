@@ -16,6 +16,9 @@ PATH="$NATIVE_SYSROOT/usr/bin:$PATH"
 # Set number of parallel make jobs
 JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
 
+# Layers
+LAYERS=(beaglebone default)
+
 # Kernel version
 KERNEL_VERSION=3.8.13
 

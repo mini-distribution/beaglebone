@@ -34,7 +34,7 @@ Build system requirements:
    $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
                           libtool automake libncurses5-dev gawk libexpat1-dev \
                           gettext u-boot-tools libglib2.0-dev intltool docbook-xsl \
-                          fakeroot 
+                          xsltproc libxml2-utils fakeroot 
 
 
    Also requires reconfiguring "/bin/sh" to use bash:

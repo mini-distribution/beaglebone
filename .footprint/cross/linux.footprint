@@ -39,7 +39,9 @@ drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/BB-SPIDEV1A1-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-UART1-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-UART2-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-UART2-RTSCTS-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-UART4-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/BB-UART4-RTSCTS-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/BB-UART5-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P8_13-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/bone_pwm_P8_19-00A0.dtbo
@@ -74,10 +76,12 @@ drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/cape-bone-mrf24j40-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-nixie-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-pinmux-test-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-bone-proto-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-replicape-00A2.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-replicape-00A3.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-tester-00A0.dtbo
 -rw-r--r--	root/root	lib/firmware/cape-bone-weather-00A0.dtbo
+-rw-r--r--	root/root	lib/firmware/cape-CBB-Serial-r01.dtbo
 drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/am33xx_pwm-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-ADC-00A0.dts
@@ -115,7 +119,9 @@ drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/BB-SPIDEV1A1-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-UART1-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-UART2-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-UART2-RTSCTS-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-UART4-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/BB-UART4-RTSCTS-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/BB-UART5-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P8_13-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/bone_pwm_P8_19-00A0.dts
@@ -151,10 +157,12 @@ drwxr-xr-x	root/root	lib/firmware/capes/
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-mrf24j40-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-nixie-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-pinmux-test-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-bone-proto-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-replicape-00A2.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-replicape-00A3.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-tester-00A0.dts
 -rw-r--r--	root/root	lib/firmware/capes/cape-bone-weather-00A0.dts
+-rw-r--r--	root/root	lib/firmware/capes/cape-CBB-Serial-r01.dts
 -rw-r--r--	root/root	lib/firmware/capes/DNIL-AMPCAPE-1-00R1.dts
 -rw-r--r--	root/root	lib/firmware/capes/TT3201-001-01.dts
 -rw-r--r--	root/root	lib/firmware/DNIL-AMPCAPE-1-00R1.dtbo

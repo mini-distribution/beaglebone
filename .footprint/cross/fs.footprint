@@ -21,6 +21,7 @@ drwxr-xr-x	root/root	etc/dbus-1/system.d/
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.hostname1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.locale1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.login1.conf
+-rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.machine1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.systemd1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.timedate1.conf
 -rw-r--r--	root/root	etc/group
@@ -41,8 +42,6 @@ drwxr-xr-x	root/root	etc/modules-load.d/
 lrwxrwxrwx	root/root	etc/mtab -> /proc/self/mounts
 -rw-r--r--	root/root	etc/passwd
 -rw-r--r--	root/root	etc/profile
-drwxr-xr-x	root/root	etc/rpm/
--rw-r--r--	root/root	etc/rpm/macros.systemd
 drwxr-xr-x	root/root	etc/ssh/
 -rw-r--r--	root/root	etc/ssh/moduli
 -rw-r--r--	root/root	etc/ssh/ssh_config
@@ -59,8 +58,8 @@ drwxr-xr-x	root/root	etc/ssl/misc/
 -rwxr-xr-x	root/root	etc/ssl/misc/tsget
 -rw-r--r--	root/root	etc/ssl/openssl.cnf
 drwxr-xr-x	root/root	etc/ssl/private/
--rw-r--r--	root/root	etc/sysctl.conf
 drwxr-xr-x	root/root	etc/sysctl.d/
+-rw-r--r--	root/root	etc/sysctl.d/99-sysctl.conf
 drwxr-xr-x	root/root	etc/systemd/
 -rw-r--r--	root/root	etc/systemd/bootchart.conf
 -rw-r--r--	root/root	etc/systemd/journald.conf
@@ -278,7 +277,7 @@ drwxr-xr-x	root/root	lib/firmware/keyspan_pda/
 -rw-r--r--	root/root	lib/firmware/mts_edge.fw
 -rw-r--r--	root/root	lib/firmware/mts_gsm.fw
 -rw-r--r--	root/root	lib/firmware/rt2870.bin
-lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/ubuntu/projects/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
+lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/ubuntu/work/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
 -rw-r--r--	root/root	lib/firmware/ti_3410.fw
 -rw-r--r--	root/root	lib/firmware/ti_5052.fw
 -rw-r--r--	root/root	lib/firmware/TT3201-001-01.dtbo
@@ -1027,6 +1026,7 @@ lrwxrwxrwx	root/root	usr/bin/captoinfo -> tic
 -rwxr-xr-x	root/root	usr/bin/chacl
 -rwsr-xr-x	root/root	usr/bin/chage
 -rwxr-xr-x	root/root	usr/bin/chcon
+-rwxr-xr-x	root/root	usr/bin/checkmk
 -rwxr-xr-x	root/root	usr/bin/chem
 -rwsr-xr-x	root/root	usr/bin/chfn
 -rwxr-xr-x	root/root	usr/bin/chgrp
@@ -1055,6 +1055,7 @@ lrwxrwxrwx	root/root	usr/bin/captoinfo -> tic
 -rwxr-xr-x	root/root	usr/bin/dbus-daemon
 -rwxr-xr-x	root/root	usr/bin/dbus-launch
 -rwxr-xr-x	root/root	usr/bin/dbus-monitor
+-rwxr-xr-x	root/root	usr/bin/dbus-run-session
 -rwxr-xr-x	root/root	usr/bin/dbus-send
 -rwxr-xr-x	root/root	usr/bin/dbus-uuidgen
 -rwxr-xr-x	root/root	usr/bin/dd
@@ -1202,6 +1203,7 @@ lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 lrwxrwxrwx	root/root	usr/bin/lsmod -> /usr/bin/kmod
 -rwxr-xr-x	root/root	usr/bin/lsusb
 -rwxr-xr-x	root/root	usr/bin/lsusb.py
+-rwxr-xr-x	root/root	usr/bin/machinectl
 -rwxr-xr-x	root/root	usr/bin/makedb
 -rwxr-xr-x	root/root	usr/bin/man
 -rwxr-xr-x	root/root	usr/bin/man2dvi
@@ -1219,6 +1221,7 @@ lrwxrwxrwx	root/root	usr/bin/modprobe -> /usr/bin/kmod
 -rwxr-xr-x	root/root	usr/bin/more
 -rwsr-xr-x	root/root	usr/bin/mount
 -rwxr-xr-x	root/root	usr/bin/mountpoint
+-rwxr-xr-x	root/root	usr/bin/mpicalc
 -rwxr-xr-x	root/root	usr/bin/mtrace
 -rwxr-xr-x	root/root	usr/bin/mv
 -rwxr-xr-x	root/root	usr/bin/namei
@@ -1257,11 +1260,12 @@ lrwxrwxrwx	root/root	usr/bin/nisdomainname -> hostname
 -rwxr-xr-x	root/root	usr/bin/pgrep
 -rwxr-xr-x	root/root	usr/bin/pic
 -rwxr-xr-x	root/root	usr/bin/pic2graph
-lrwxrwxrwx	root/root	usr/bin/pidof -> /sbin/killall5
+-rwxr-xr-x	root/root	usr/bin/pidof
 -rwsr-xr-x	root/root	usr/bin/ping
+-rwsr-xr-x	root/root	usr/bin/ping6
 -rwxr-xr-x	root/root	usr/bin/pinky
 -rwxr-xr-x	root/root	usr/bin/pkcs1-conv
-lrwxrwxrwx	root/root	usr/bin/pkill -> pgrep
+-rwxr-xr-x	root/root	usr/bin/pkill
 -rwxr-xr-x	root/root	usr/bin/pldd
 -rwxr-xr-x	root/root	usr/bin/pmap
 -rwxr-xr-x	root/root	usr/bin/post-grohtml
@@ -1326,11 +1330,9 @@ lrwxrwxrwx	root/root	usr/bin/sh -> bash
 -rwxr-xr-x	root/root	usr/bin/showkey
 -rwxr-xr-x	root/root	usr/bin/shred
 -rwxr-xr-x	root/root	usr/bin/shuf
--rwxr-xr-x	root/root	usr/bin/skill
 -rwxr-xr-x	root/root	usr/bin/slabtop
 -rwxr-xr-x	root/root	usr/bin/sleep
 lrwxrwxrwx	root/root	usr/bin/slogin -> ./ssh
-lrwxrwxrwx	root/root	usr/bin/snice -> skill
 -rwxr-xr-x	root/root	usr/bin/soelim
 -rwxr-xr-x	root/root	usr/bin/sort
 -rwxr-xr-x	root/root	usr/bin/sotruss
@@ -1361,6 +1363,7 @@ lrwxrwxrwx	root/root	usr/bin/snice -> skill
 -rwxr-xr-x	root/root	usr/bin/systemd-machine-id-setup
 -rwxr-xr-x	root/root	usr/bin/systemd-notify
 -rwxr-xr-x	root/root	usr/bin/systemd-nspawn
+-rwxr-xr-x	root/root	usr/bin/systemd-run
 -rwxr-xr-x	root/root	usr/bin/systemd-stdio-bridge
 -rwxr-xr-x	root/root	usr/bin/systemd-tmpfiles
 -rwxr-xr-x	root/root	usr/bin/systemd-tty-ask-password-agent
@@ -1802,17 +1805,20 @@ lrwxrwxrwx	root/root	usr/lib/libbfd.so -> libbfd-2.23.1.so
 lrwxrwxrwx	root/root	usr/lib/libblkid.so.1 -> libblkid.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libblkid.so -> libblkid.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libBrokenLocale.so -> ../../lib/libBrokenLocale.so.1
--rw-r--r--	root/root	usr/lib/libcap.so.2.22
-lrwxrwxrwx	root/root	usr/lib/libcap.so.2 -> libcap.so.2.22
+-rw-r--r--	root/root	usr/lib/libcap.so.2.24
+lrwxrwxrwx	root/root	usr/lib/libcap.so.2 -> libcap.so.2.24
 lrwxrwxrwx	root/root	usr/lib/libcap.so -> libcap.so.2
+-rwxr-xr-x	root/root	usr/lib/libcheck.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcheck.so.0 -> libcheck.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcheck.so -> libcheck.so.0.0.0
 -r-xr-xr-x	root/root	usr/lib/libcrypto.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libcrypto.so -> libcrypto.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libcrypt.so -> ../../lib/libcrypt.so.1
 -rw-r--r--	root/root	usr/lib/libc.so
 lrwxrwxrwx	root/root	usr/lib/libcurses.so -> libncurses.so.5.9
--rwxr-xr-x	root/root	usr/lib/libdbus-1.so.3.7.3
-lrwxrwxrwx	root/root	usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.7.3
-lrwxrwxrwx	root/root	usr/lib/libdbus-1.so -> libdbus-1.so.3.7.3
+-rwxr-xr-x	root/root	usr/lib/libdbus-1.so.3.8.3
+lrwxrwxrwx	root/root	usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.8.3
+lrwxrwxrwx	root/root	usr/lib/libdbus-1.so -> libdbus-1.so.3.8.3
 lrwxrwxrwx	root/root	usr/lib/libdl.so -> ../../lib/libdl.so.2
 -rwxr-xr-x	root/root	usr/lib/libexpat.so.1.6.0
 lrwxrwxrwx	root/root	usr/lib/libexpat.so.1 -> libexpat.so.1.6.0
@@ -1827,42 +1833,45 @@ lrwxrwxrwx	root/root	usr/lib/libffi.so -> libffi.so.6.0.1
 -rwxr-xr-x	root/root	usr/lib/libform.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libform.so.5 -> libform.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libform.so -> libform.so.5
--rwxr-xr-x	root/root	usr/lib/libgcrypt.so.11.8.1
-lrwxrwxrwx	root/root	usr/lib/libgcrypt.so.11 -> libgcrypt.so.11.8.1
-lrwxrwxrwx	root/root	usr/lib/libgcrypt.so -> libgcrypt.so.11.8.1
--rwxr-xr-x	root/root	usr/lib/libgio-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so.0 -> libgio-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so -> libgio-2.0.so.0.3600.1
--rwxr-xr-x	root/root	usr/lib/libglib-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so -> libglib-2.0.so.0.3600.1
--rwxr-xr-x	root/root	usr/lib/libgmodule-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so.0 -> libgmodule-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so -> libgmodule-2.0.so.0.3600.1
--rwxr-xr-x	root/root	usr/lib/libgmp.so.10.1.2
-lrwxrwxrwx	root/root	usr/lib/libgmp.so.10 -> libgmp.so.10.1.2
-lrwxrwxrwx	root/root	usr/lib/libgmp.so -> libgmp.so.10.1.2
--rwxr-xr-x	root/root	usr/lib/libgmpxx.so.4.3.2
-lrwxrwxrwx	root/root	usr/lib/libgmpxx.so.4 -> libgmpxx.so.4.3.2
-lrwxrwxrwx	root/root	usr/lib/libgmpxx.so -> libgmpxx.so.4.3.2
+-rwxr-xr-x	root/root	usr/lib/libgcrypt.so.20.0.1
+lrwxrwxrwx	root/root	usr/lib/libgcrypt.so.20 -> libgcrypt.so.20.0.1
+lrwxrwxrwx	root/root	usr/lib/libgcrypt.so -> libgcrypt.so.20.0.1
+-rwxr-xr-x	root/root	usr/lib/libgio-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so.0 -> libgio-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgio-2.0.so -> libgio-2.0.so.0.3800.2
+-rwxr-xr-x	root/root	usr/lib/libglib-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libglib-2.0.so -> libglib-2.0.so.0.3800.2
+-rwxr-xr-x	root/root	usr/lib/libgmodule-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so.0 -> libgmodule-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgmodule-2.0.so -> libgmodule-2.0.so.0.3800.2
+-rwxr-xr-x	root/root	usr/lib/libgmp.so.10.1.3
+lrwxrwxrwx	root/root	usr/lib/libgmp.so.10 -> libgmp.so.10.1.3
+lrwxrwxrwx	root/root	usr/lib/libgmp.so -> libgmp.so.10.1.3
+-rwxr-xr-x	root/root	usr/lib/libgmpxx.so.4.3.3
+lrwxrwxrwx	root/root	usr/lib/libgmpxx.so.4 -> libgmpxx.so.4.3.3
+lrwxrwxrwx	root/root	usr/lib/libgmpxx.so -> libgmpxx.so.4.3.3
 -rwxr-xr-x	root/root	usr/lib/libgnutls-openssl.so.27.0.2
 lrwxrwxrwx	root/root	usr/lib/libgnutls-openssl.so.27 -> libgnutls-openssl.so.27.0.2
 lrwxrwxrwx	root/root	usr/lib/libgnutls-openssl.so -> libgnutls-openssl.so.27.0.2
--rwxr-xr-x	root/root	usr/lib/libgnutls.so.28.15.0
-lrwxrwxrwx	root/root	usr/lib/libgnutls.so.28 -> libgnutls.so.28.15.0
-lrwxrwxrwx	root/root	usr/lib/libgnutls.so -> libgnutls.so.28.15.0
+-rwxr-xr-x	root/root	usr/lib/libgnutls.so.28.29.1
+lrwxrwxrwx	root/root	usr/lib/libgnutls.so.28 -> libgnutls.so.28.29.1
+lrwxrwxrwx	root/root	usr/lib/libgnutls.so -> libgnutls.so.28.29.1
+-rwxr-xr-x	root/root	usr/lib/libgnutls-xssl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnutls-xssl.so.0 -> libgnutls-xssl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnutls-xssl.so -> libgnutls-xssl.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libgnutlsxx.so.28.1.0
 lrwxrwxrwx	root/root	usr/lib/libgnutlsxx.so.28 -> libgnutlsxx.so.28.1.0
 lrwxrwxrwx	root/root	usr/lib/libgnutlsxx.so -> libgnutlsxx.so.28.1.0
--rwxr-xr-x	root/root	usr/lib/libgobject-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so.0 -> libgobject-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so -> libgobject-2.0.so.0.3600.1
--rwxr-xr-x	root/root	usr/lib/libgpg-error.so.0.9.0
-lrwxrwxrwx	root/root	usr/lib/libgpg-error.so.0 -> libgpg-error.so.0.9.0
-lrwxrwxrwx	root/root	usr/lib/libgpg-error.so -> libgpg-error.so.0.9.0
--rwxr-xr-x	root/root	usr/lib/libgthread-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so.0 -> libgthread-2.0.so.0.3600.1
-lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so -> libgthread-2.0.so.0.3600.1
+-rwxr-xr-x	root/root	usr/lib/libgobject-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so.0 -> libgobject-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgobject-2.0.so -> libgobject-2.0.so.0.3800.2
+-rwxr-xr-x	root/root	usr/lib/libgpg-error.so.0.10.0
+lrwxrwxrwx	root/root	usr/lib/libgpg-error.so.0 -> libgpg-error.so.0.10.0
+lrwxrwxrwx	root/root	usr/lib/libgpg-error.so -> libgpg-error.so.0.10.0
+-rwxr-xr-x	root/root	usr/lib/libgthread-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so.0 -> libgthread-2.0.so.0.3800.2
+lrwxrwxrwx	root/root	usr/lib/libgthread-2.0.so -> libgthread-2.0.so.0.3800.2
 -rwxr-xr-x	root/root	usr/lib/libgudev-1.0.so.0.1.3
 lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so.0 -> libgudev-1.0.so.0.1.3
 lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.3
@@ -1884,9 +1893,9 @@ lrwxrwxrwx	root/root	usr/lib/libipq.so -> libipq.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libiptc.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libiptc.so.0 -> libiptc.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libiptc.so -> libiptc.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libkmod.so.2.2.3
-lrwxrwxrwx	root/root	usr/lib/libkmod.so.2 -> libkmod.so.2.2.3
-lrwxrwxrwx	root/root	usr/lib/libkmod.so -> libkmod.so.2.2.3
+-rwxr-xr-x	root/root	usr/lib/libkmod.so.2.2.6
+lrwxrwxrwx	root/root	usr/lib/libkmod.so.2 -> libkmod.so.2.2.6
+lrwxrwxrwx	root/root	usr/lib/libkmod.so -> libkmod.so.2.2.6
 -rwxr-xr-x	root/root	usr/lib/libmenu.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libmenu.so.5 -> libmenu.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libmenu.so -> libmenu.so.5
@@ -1901,13 +1910,13 @@ lrwxrwxrwx	root/root	usr/lib/libncurses.so -> libncurses.so.5
 lrwxrwxrwx	root/root	usr/lib/libnettle.so.4 -> libnettle.so.4.7
 lrwxrwxrwx	root/root	usr/lib/libnettle.so -> libnettle.so.4.7
 drwxr-xr-x	root/root	usr/lib/libnl/
--rwxr-xr-x	root/root	usr/lib/libnl-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-3.so.200 -> libnl-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-3.so -> libnl-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-3.so.200 -> libnl-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-3.so -> libnl-3.so.200.19.0
 drwxr-xr-x	root/root	usr/lib/libnl/cli/
--rwxr-xr-x	root/root	usr/lib/libnl-cli-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so -> libnl-cli-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-cli-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-cli-3.so -> libnl-cli-3.so.200.19.0
 drwxr-xr-x	root/root	usr/lib/libnl/cli/cls/
 -rw-r--r--	root/root	usr/lib/libnl/cli/cls/basic.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/cls/basic.la
@@ -1922,27 +1931,33 @@ drwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/
 -rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/blackhole.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/blackhole.la
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/blackhole.so
+-rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/fq_codel.a
+-rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/fq_codel.la
+-rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/fq_codel.so
 -rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/htb.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/htb.la
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/htb.so
+-rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/ingress.a
+-rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/ingress.la
+-rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/ingress.so
 -rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/pfifo.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/pfifo.la
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/pfifo.so
 -rw-r--r--	root/root	usr/lib/libnl/cli/qdisc/plug.a
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/plug.la
 -rwxr-xr-x	root/root	usr/lib/libnl/cli/qdisc/plug.so
--rwxr-xr-x	root/root	usr/lib/libnl-genl-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so -> libnl-genl-3.so.200.18.0
--rwxr-xr-x	root/root	usr/lib/libnl-idiag-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so.200 -> libnl-idiag-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so -> libnl-idiag-3.so.200.18.0
--rwxr-xr-x	root/root	usr/lib/libnl-nf-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so -> libnl-nf-3.so.200.18.0
--rwxr-xr-x	root/root	usr/lib/libnl-route-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.18.0
-lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so -> libnl-route-3.so.200.18.0
+-rwxr-xr-x	root/root	usr/lib/libnl-genl-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-genl-3.so -> libnl-genl-3.so.200.19.0
+-rwxr-xr-x	root/root	usr/lib/libnl-idiag-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so.200 -> libnl-idiag-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-idiag-3.so -> libnl-idiag-3.so.200.19.0
+-rwxr-xr-x	root/root	usr/lib/libnl-nf-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-nf-3.so -> libnl-nf-3.so.200.19.0
+-rwxr-xr-x	root/root	usr/lib/libnl-route-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.19.0
+lrwxrwxrwx	root/root	usr/lib/libnl-route-3.so -> libnl-route-3.so.200.19.0
 lrwxrwxrwx	root/root	usr/lib/libnsl.so -> ../../lib/libnsl.so.1
 lrwxrwxrwx	root/root	usr/lib/libnss_compat.so -> ../../lib/libnss_compat.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_db.so -> ../../lib/libnss_db.so.2
@@ -1955,22 +1970,24 @@ lrwxrwxrwx	root/root	usr/lib/libnss_nis.so -> ../../lib/libnss_nis.so.2
 -rwxr-xr-x	root/root	usr/lib/libpanel.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libpanel.so.5 -> libpanel.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libpanel.so -> libpanel.so.5
--rwxr-xr-x	root/root	usr/lib/libpcre16.so.0.2.0
-lrwxrwxrwx	root/root	usr/lib/libpcre16.so.0 -> libpcre16.so.0.2.0
-lrwxrwxrwx	root/root	usr/lib/libpcre16.so -> libpcre16.so.0.2.0
--rwxr-xr-x	root/root	usr/lib/libpcre32.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libpcre32.so.0 -> libpcre32.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libpcre32.so -> libpcre32.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libpcre16.so.0.2.2
+lrwxrwxrwx	root/root	usr/lib/libpcre16.so.0 -> libpcre16.so.0.2.2
+lrwxrwxrwx	root/root	usr/lib/libpcre16.so -> libpcre16.so.0.2.2
+-rwxr-xr-x	root/root	usr/lib/libpcre32.so.0.0.2
+lrwxrwxrwx	root/root	usr/lib/libpcre32.so.0 -> libpcre32.so.0.0.2
+lrwxrwxrwx	root/root	usr/lib/libpcre32.so -> libpcre32.so.0.0.2
 -rwxr-xr-x	root/root	usr/lib/libpcrecpp.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libpcrecpp.so.0 -> libpcrecpp.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libpcrecpp.so -> libpcrecpp.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libpcreposix.so.0.0.1
-lrwxrwxrwx	root/root	usr/lib/libpcreposix.so.0 -> libpcreposix.so.0.0.1
-lrwxrwxrwx	root/root	usr/lib/libpcreposix.so -> libpcreposix.so.0.0.1
--rwxr-xr-x	root/root	usr/lib/libpcre.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libpcre.so.1 -> libpcre.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libpcre.so -> libpcre.so.1.2.0
--rwxr-xr-x	root/root	usr/lib/libproc-3.2.8.so
+-rwxr-xr-x	root/root	usr/lib/libpcreposix.so.0.0.2
+lrwxrwxrwx	root/root	usr/lib/libpcreposix.so.0 -> libpcreposix.so.0.0.2
+lrwxrwxrwx	root/root	usr/lib/libpcreposix.so -> libpcreposix.so.0.0.2
+-rwxr-xr-x	root/root	usr/lib/libpcre.so.1.2.2
+lrwxrwxrwx	root/root	usr/lib/libpcre.so.1 -> libpcre.so.1.2.2
+lrwxrwxrwx	root/root	usr/lib/libpcre.so -> libpcre.so.1.2.2
+-rwxr-xr-x	root/root	usr/lib/libprocps.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libprocps.so.3 -> libprocps.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libprocps.so -> libprocps.so.3.0.0
 -rw-r--r--	root/root	usr/lib/libpthread.so
 -r-xr-xr-x	root/root	usr/lib/libreadline.so.6.2
 lrwxrwxrwx	root/root	usr/lib/libreadline.so.6 -> libreadline.so.6.2
@@ -1985,22 +2002,22 @@ lrwxrwxrwx	root/root	usr/lib/libsysfs.so -> libsysfs.so.2.0.1
 -rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.so.0.0.10
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.10
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.10
--rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.23
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.23
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.23
--rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.10.2
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.10.2
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.10.2
--rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.7.1
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.7.1
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.7.1
+-rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.26
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.26
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.26
+-rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.11.3
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.11.3
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.11.3
+-rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.9.1
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.9.1
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.9.1
 lrwxrwxrwx	root/root	usr/lib/libthread_db.so -> ../../lib/libthread_db.so.1
 -rwxr-xr-x	root/root	usr/lib/libtinfo.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libtinfo.so.5 -> libtinfo.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libtinfo.so -> libtinfo.so.5
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.3.5
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.3.5
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.3.5
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.4.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.4.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.4.0
 -rwxr-xr-x	root/root	usr/lib/libusb-1.0.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libusb-1.0.so.0 -> libusb-1.0.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libusb-1.0.so -> libusb-1.0.so.0.1.0
@@ -2021,6 +2038,7 @@ lrwxrwxrwx	root/root	usr/lib/libz.so -> libz.so.1.2.8
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/blkid.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/check.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/connman.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/dbus-1.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/expat.pc
@@ -2030,7 +2048,6 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gmodule-2.0.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gmodule-export-2.0.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gmodule-no-export-2.0.pc
--rw-r--r--	root/root	usr/lib/pkgconfig/gnutls-dane.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gnutls.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gobject-2.0.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gthread-2.0.pc
@@ -2054,6 +2071,7 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpcrecpp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpcre.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpcreposix.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libprocps.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libssl.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libsystemd-daemon.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libsystemd-id128.pc
@@ -2068,6 +2086,9 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/uuid.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/xtables.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/zlib.pc
+drwxr-xr-x	root/root	usr/lib/rpm/
+drwxr-xr-x	root/root	usr/lib/rpm/macros.d/
+-rw-r--r--	root/root	usr/lib/rpm/macros.d/macros.systemd
 -rw-r--r--	root/root	usr/lib/Scrt1.o
 drwxr-xr-x	root/root	usr/lib/sysctl.d/
 -rw-r--r--	root/root	usr/lib/sysctl.d/50-coredump.conf
@@ -2087,11 +2108,13 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/ctrl-alt-del.target -> reboot.target
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-ac-power
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-activate
+-rwxr-xr-x	root/root	usr/lib/systemd/systemd-backlight
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-binfmt
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-bootchart
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.machine1.service -> systemd-machined.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-cgroups-agent
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-coredump
@@ -2105,6 +2128,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/default.target -> multi-user.target
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-journald
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-localed
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-logind
+-rwxr-xr-x	root/root	usr/lib/systemd/systemd-machined
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-modules-load
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-multi-seat-x
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-quotacheck
@@ -2117,7 +2141,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/default.target -> multi-user.target
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-sleep
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-sysctl
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-timedated
--rwxr-xr-x	root/root	usr/lib/systemd/systemd-timestamp
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-udevd
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-update-utmp
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-user-sessions
@@ -2129,6 +2152,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system-generators/
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-efi-boot-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-fstab-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-getty-generator
+-rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-gpt-auto-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-rc-local-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-system-update-generator
 -rw-r--r--	root/root	usr/lib/systemd/system/getty@.service
@@ -2147,12 +2171,14 @@ drwxr-xr-x	root/root	usr/lib/systemd/system-generators/
 -rw-r--r--	root/root	usr/lib/systemd/system/initrd.target
 -rw-r--r--	root/root	usr/lib/systemd/system/initrd-udevadm-cleanup-db.service
 -rw-r--r--	root/root	usr/lib/systemd/system/kexec.target
+-rw-r--r--	root/root	usr/lib/systemd/system/kmod-static-nodes.service
 -rw-r--r--	root/root	usr/lib/systemd/system/local-fs-pre.target
 -rw-r--r--	root/root	usr/lib/systemd/system/local-fs.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/local-fs.target.wants/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/local-fs.target.wants/systemd-fsck-root.service -> ../systemd-fsck-root.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/local-fs.target.wants/systemd-remount-fs.service -> ../systemd-remount-fs.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/local-fs.target.wants/tmp.mount -> ../tmp.mount
+-rw-r--r--	root/root	usr/lib/systemd/system/machine.slice
 -rw-r--r--	root/root	usr/lib/systemd/system/multi-user.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/multi-user.target.wants/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/multi-user.target.wants/getty.target -> ../getty.target
@@ -2196,12 +2222,11 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/runlevel6.target -> reboot.target
 -rw-r--r--	root/root	usr/lib/systemd/system/serial-getty@.service
 drwxr-xr-x	root/root	usr/lib/systemd/system-shutdown/
 -rw-r--r--	root/root	usr/lib/systemd/system/shutdown.target
-drwxr-xr-x	root/root	usr/lib/systemd/system/shutdown.target.wants/
-lrwxrwxrwx	root/root	usr/lib/systemd/system/shutdown.target.wants/systemd-random-seed-save.service -> ../systemd-random-seed-save.service
-lrwxrwxrwx	root/root	usr/lib/systemd/system/shutdown.target.wants/systemd-update-utmp-shutdown.service -> ../systemd-update-utmp-shutdown.service
 -rw-r--r--	root/root	usr/lib/systemd/system/sigpwr.target
 drwxr-xr-x	root/root	usr/lib/systemd/system-sleep/
 -rw-r--r--	root/root	usr/lib/systemd/system/sleep.target
+-rw-r--r--	root/root	usr/lib/systemd/system/-.slice
+-rw-r--r--	root/root	usr/lib/systemd/system/slices.target
 -rw-r--r--	root/root	usr/lib/systemd/system/smartcard.target
 -rw-r--r--	root/root	usr/lib/systemd/system/sockets.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/sockets.target.wants/
@@ -2218,6 +2243,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sockets.target.wants/systemd-udevd-k
 drwxr-xr-x	root/root	usr/lib/systemd/system/sysinit.target.wants/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/dev-hugepages.mount -> ../dev-hugepages.mount
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/dev-mqueue.mount -> ../dev-mqueue.mount
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service -> ../kmod-static-nodes.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/proc-sys-fs-binfmt_misc.automount -> ../proc-sys-fs-binfmt_misc.automount
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/sys-fs-fuse-connections.mount -> ../sys-fs-fuse-connections.mount
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/sys-kernel-config.mount -> ../sys-kernel-config.mount
@@ -2227,12 +2253,13 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-binfmt.
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service -> ../systemd-journald.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service -> ../systemd-journal-flush.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service -> ../systemd-modules-load.service
-lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed-load.service -> ../systemd-random-seed-load.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service -> ../systemd-random-seed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service -> ../systemd-sysctl.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service -> ../systemd-tmpfiles-setup-dev.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service -> ../systemd-tmpfiles-setup.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service -> ../systemd-udevd.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service -> ../systemd-udev-trigger.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service -> ../systemd-update-utmp.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsole-setup.service -> ../systemd-vconsole-setup.service
 -rw-r--r--	root/root	usr/lib/systemd/system/sys-kernel-config.mount
 -rw-r--r--	root/root	usr/lib/systemd/system/sys-kernel-debug.mount
@@ -2241,6 +2268,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-ask-password-console.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-ask-password-wall.path
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-ask-password-wall.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-backlight@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-binfmt.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-fsck-root.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-fsck@.service
@@ -2256,12 +2284,12 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-kexec.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-localed.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-logind.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-machined.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-modules-load.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-nspawn@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-poweroff.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-quotacheck.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-random-seed-load.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-random-seed-save.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-random-seed.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-collect.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-done.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-done.timer
@@ -2284,9 +2312,10 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udev-settle.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udev-trigger.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-update-utmp-runlevel.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-update-utmp-shutdown.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-update-utmp.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-user-sessions.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-vconsole-setup.service
+-rw-r--r--	root/root	usr/lib/systemd/system/system.slice
 -rw-r--r--	root/root	usr/lib/systemd/system/system-update.target
 -rw-r--r--	root/root	usr/lib/systemd/system/timers.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/timers.target.wants/
@@ -2295,6 +2324,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/timers.target.wants/systemd-tmpfiles
 -rw-r--r--	root/root	usr/lib/systemd/system/tmp.mount
 -rw-r--r--	root/root	usr/lib/systemd/system/umount.target
 -rw-r--r--	root/root	usr/lib/systemd/system/user@.service
+-rw-r--r--	root/root	usr/lib/systemd/system/user.slice
 drwxr-xr-x	root/root	usr/lib/systemd/user/
 lrwxrwxrwx	root/root	usr/lib/systemd/user/bluetooth.target -> /usr/lib/systemd/system/bluetooth.target
 -rw-r--r--	root/root	usr/lib/systemd/user/default.target
@@ -2317,7 +2347,6 @@ drwxr-xr-x	root/root	usr/lib/udev/
 -rwxr-xr-x	root/root	usr/lib/udev/ata_id
 -rwxr-xr-x	root/root	usr/lib/udev/cdrom_id
 -rwxr-xr-x	root/root	usr/lib/udev/collect
--rwxr-xr-x	root/root	usr/lib/udev/findkeyboards
 drwxr-xr-x	root/root	usr/lib/udev/hwdb.d/
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-acpi-vendor.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-bluetooth-vendor-product.hwdb
@@ -2326,83 +2355,14 @@ drwxr-xr-x	root/root	usr/lib/udev/hwdb.d/
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-pci-vendor-model.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-usb-classes.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-usb-vendor-model.hwdb
--rwxr-xr-x	root/root	usr/lib/udev/keyboard-force-release.sh
--rwxr-xr-x	root/root	usr/lib/udev/keymap
-drwxr-xr-x	root/root	usr/lib/udev/keymaps/
--rw-r--r--	root/root	usr/lib/udev/keymaps/acer
--rw-r--r--	root/root	usr/lib/udev/keymaps/acer-aspire_5720
--rw-r--r--	root/root	usr/lib/udev/keymaps/acer-aspire_5920g
--rw-r--r--	root/root	usr/lib/udev/keymaps/acer-aspire_6920
--rw-r--r--	root/root	usr/lib/udev/keymaps/acer-aspire_8930
--rw-r--r--	root/root	usr/lib/udev/keymaps/acer-travelmate_c300
--rw-r--r--	root/root	usr/lib/udev/keymaps/asus
--rw-r--r--	root/root	usr/lib/udev/keymaps/compaq-e_evo
--rw-r--r--	root/root	usr/lib/udev/keymaps/dell
--rw-r--r--	root/root	usr/lib/udev/keymaps/dell-latitude-xt2
--rw-r--r--	root/root	usr/lib/udev/keymaps/everex-xt5000
-drwxr-xr-x	root/root	usr/lib/udev/keymaps/force-release/
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/common-volume-keys
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/dell-touchpad
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/dell-xps
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/hp-other
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/samsung-other
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/samsung-series-9
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_li_2732
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_pa_2548
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_pro_edition_v3505
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_pro_v3205
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_si_1520
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-esprimo_mobile_v5
--rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-esprimo_mobile_v6
--rw-r--r--	root/root	usr/lib/udev/keymaps/genius-slimstar-320
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-2510p_2530p
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-compaq_elitebook
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard_elitebook-8440p
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard_elitebook-8460p
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-hdx9494nr
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-pavilion
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-presario-2100
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-tablet
--rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-tx2
--rw-r--r--	root/root	usr/lib/udev/keymaps/ibm-thinkpad-usb-keyboard-trackpoint
--rw-r--r--	root/root	usr/lib/udev/keymaps/inventec-symphony_6.0_7.0
--rw-r--r--	root/root	usr/lib/udev/keymaps/lenovo-3000
--rw-r--r--	root/root	usr/lib/udev/keymaps/lenovo-ideapad
--rw-r--r--	root/root	usr/lib/udev/keymaps/lenovo-thinkpad-usb-keyboard-trackpoint
--rw-r--r--	root/root	usr/lib/udev/keymaps/lenovo-thinkpad_x200_tablet
--rw-r--r--	root/root	usr/lib/udev/keymaps/lenovo-thinkpad_x6_tablet
--rw-r--r--	root/root	usr/lib/udev/keymaps/lg-x110
--rw-r--r--	root/root	usr/lib/udev/keymaps/logitech-wave
--rw-r--r--	root/root	usr/lib/udev/keymaps/logitech-wave-cordless
--rw-r--r--	root/root	usr/lib/udev/keymaps/logitech-wave-pro-cordless
--rw-r--r--	root/root	usr/lib/udev/keymaps/maxdata-pro_7000
--rw-r--r--	root/root	usr/lib/udev/keymaps/medion-fid2060
--rw-r--r--	root/root	usr/lib/udev/keymaps/medionnb-a555
--rw-r--r--	root/root	usr/lib/udev/keymaps/micro-star
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-asus-w3j
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-ibm
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-lenovo
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-sony
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-sony-old
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-sony-vgn
--rw-r--r--	root/root	usr/lib/udev/keymaps/module-sony-vpc
--rw-r--r--	root/root	usr/lib/udev/keymaps/olpc-xo
--rw-r--r--	root/root	usr/lib/udev/keymaps/onkyo
--rw-r--r--	root/root	usr/lib/udev/keymaps/oqo-model2
--rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-other
--rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-series-9
--rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-sq1us
--rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-sx20s
--rw-r--r--	root/root	usr/lib/udev/keymaps/toshiba-satellite_a100
--rw-r--r--	root/root	usr/lib/udev/keymaps/toshiba-satellite_a110
--rw-r--r--	root/root	usr/lib/udev/keymaps/toshiba-satellite_m30x
--rw-r--r--	root/root	usr/lib/udev/keymaps/zepto-znote
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/60-keyboard.hwdb
 -rwxr-xr-x	root/root	usr/lib/udev/mtd_probe
 drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/42-usb-hid-pm.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/50-firmware.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/50-udev-default.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-cdrom_id.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/60-keyboard.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-persistent-alsa.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-persistent-input.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-persistent-serial.rules
@@ -2420,8 +2380,6 @@ drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/78-sound-card.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/80-drivers.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/80-net-name-slot.rules
--rw-r--r--	root/root	usr/lib/udev/rules.d/95-keyboard-force-release.rules
--rw-r--r--	root/root	usr/lib/udev/rules.d/95-keymap.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/95-udev-late.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/99-systemd.rules
 -rwxr-xr-x	root/root	usr/lib/udev/scsi_id
@@ -2523,6 +2481,7 @@ drwxr-xr-x	root/root	usr/lib/xtables/
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_state.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_statistic.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_string.so
+-rwxr-xr-x	root/root	usr/lib/xtables/libxt_SYNPROXY.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_tcpmss.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_TCPMSS.so
 -rwxr-xr-x	root/root	usr/lib/xtables/libxt_TCPOPTSTRIP.so
@@ -2652,6 +2611,8 @@ lrwxrwxrwx	root/root	usr/sbin/reboot -> halt
 -rwxr-xr-x	root/root	usr/sbin/tcpdmatch
 lrwxrwxrwx	root/root	usr/sbin/telinit -> init
 -rwxr-xr-x	root/root	usr/sbin/tracepath
+-rwxr-xr-x	root/root	usr/sbin/tracepath6
+-rwsr-xr-x	root/root	usr/sbin/traceroute6
 -rwxr-xr-x	root/root	usr/sbin/try-from
 -rwxr-xr-x	root/root	usr/sbin/update-pciids
 -rwxr-xr-x	root/root	usr/sbin/update-usbids.sh
@@ -2670,6 +2631,7 @@ lrwxrwxrwx	root/root	usr/sbin/vigr -> vipw
 -rwxr-xr-x	root/root	usr/sbin/zic
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/check.m4
 -rw-r--r--	root/root	usr/share/aclocal/glib-2.0.m4
 -rw-r--r--	root/root	usr/share/aclocal/glib-gettext.m4
 -rw-r--r--	root/root	usr/share/aclocal/gpg-error.m4
@@ -2737,6 +2699,8 @@ drwxr-xr-x	root/root	usr/share/bash-completion/completions/
 -rw-r--r--	root/root	usr/share/bash-completion/completions/ipcs
 -rw-r--r--	root/root	usr/share/bash-completion/completions/isosize
 -rw-r--r--	root/root	usr/share/bash-completion/completions/journalctl
+-rw-r--r--	root/root	usr/share/bash-completion/completions/kernel-install
+-rw-r--r--	root/root	usr/share/bash-completion/completions/kmod
 -rw-r--r--	root/root	usr/share/bash-completion/completions/ldattach
 -rw-r--r--	root/root	usr/share/bash-completion/completions/localectl
 -rw-r--r--	root/root	usr/share/bash-completion/completions/logger
@@ -2747,6 +2711,7 @@ drwxr-xr-x	root/root	usr/share/bash-completion/completions/
 -rw-r--r--	root/root	usr/share/bash-completion/completions/lscpu
 -rw-r--r--	root/root	usr/share/bash-completion/completions/lslocks
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mcookie
+-rw-r--r--	root/root	usr/share/bash-completion/completions/mesg
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mkfs
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mkfs.bfs
 -rw-r--r--	root/root	usr/share/bash-completion/completions/mkfs.cramfs
@@ -2778,6 +2743,7 @@ drwxr-xr-x	root/root	usr/share/bash-completion/completions/
 -rw-r--r--	root/root	usr/share/bash-completion/completions/systemctl
 -rw-r--r--	root/root	usr/share/bash-completion/completions/systemd-analyze
 -rw-r--r--	root/root	usr/share/bash-completion/completions/systemd-coredumpctl
+-rw-r--r--	root/root	usr/share/bash-completion/completions/systemd-run
 -rw-r--r--	root/root	usr/share/bash-completion/completions/tailf
 -rw-r--r--	root/root	usr/share/bash-completion/completions/taskset
 -rw-r--r--	root/root	usr/share/bash-completion/completions/timedatectl
@@ -2824,6 +2790,7 @@ drwxr-xr-x	root/root	usr/share/dbus-1/system-services/
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.hostname1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.locale1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.login1.service
+-rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.machine1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.systemd1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
 drwxr-xr-x	root/root	usr/share/doc/
@@ -2834,10 +2801,6 @@ drwxr-xr-x	root/root	usr/share/doc/attr/
 -rw-r--r--	root/root	usr/share/doc/attr/PORTING
 -rw-r--r--	root/root	usr/share/doc/attr/README
 drwxr-xr-x	root/root	usr/share/doc/dbus/
--rw-r--r--	root/root	usr/share/doc/dbus/dbus-faq.html
--rw-r--r--	root/root	usr/share/doc/dbus/dbus-specification.html
--rw-r--r--	root/root	usr/share/doc/dbus/dbus-test-plan.html
--rw-r--r--	root/root	usr/share/doc/dbus/dbus-tutorial.html
 -rw-r--r--	root/root	usr/share/doc/dbus/diagram.png
 -rw-r--r--	root/root	usr/share/doc/dbus/diagram.svg
 -rw-r--r--	root/root	usr/share/doc/dbus/system-activation.txt
@@ -2848,16 +2811,16 @@ drwxr-xr-x	root/root	usr/share/doc/systemd/
 -rw-r--r--	root/root	usr/share/doc/systemd/LICENSE.MIT
 -rw-r--r--	root/root	usr/share/doc/systemd/NEWS
 -rw-r--r--	root/root	usr/share/doc/systemd/README
--rw-r--r--	root/root	usr/share/doc/systemd/README.keymap.txt
 -rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.c
 -rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.h
+drwxr-xr-x	root/root	usr/share/doc/util-linux/
+drwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/
+-rwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/getopt-parse.bash
+-rwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/getopt-parse.tcsh
 drwxr-xr-x	root/root	usr/share/gdb/
 drwxr-xr-x	root/root	usr/share/gdb/auto-load/
--rwxr-xr-x	root/root	usr/share/gdb/auto-load/libglib-2.0.so.0.3600.1-gdb.py
--rwxr-xr-x	root/root	usr/share/gdb/auto-load/libgobject-2.0.so.0.3600.1-gdb.py
-drwxr-xr-x	root/root	usr/share/getopt/
--rwxr-xr-x	root/root	usr/share/getopt/getopt-parse.bash
--rwxr-xr-x	root/root	usr/share/getopt/getopt-parse.tcsh
+-rwxr-xr-x	root/root	usr/share/gdb/auto-load/libglib-2.0.so.0.3800.2-gdb.py
+-rwxr-xr-x	root/root	usr/share/gdb/auto-load/libgobject-2.0.so.0.3800.2-gdb.py
 drwxr-xr-x	root/root	usr/share/glib-2.0/
 drwxr-xr-x	root/root	usr/share/glib-2.0/codegen/
 -rw-r--r--	root/root	usr/share/glib-2.0/codegen/codegen_docbook.py
@@ -3323,6 +3286,9 @@ drwxr-xr-x	root/root	usr/share/groff/site-font/
 drwxr-xr-x	root/root	usr/share/groff/site-tmac/
 -rw-r--r--	root/root	usr/share/groff/site-tmac/man.local
 -rw-r--r--	root/root	usr/share/groff/site-tmac/mdoc.local
+drwxr-xr-x	root/root	usr/share/info/
+-rw-r--r--	root/root	usr/share/info/check.info
+-rw-r--r--	root/root	usr/share/info/dir
 drwxr-xr-x	root/root	usr/share/kbd/
 drwxr-xr-x	root/root	usr/share/kbd/consolefonts/
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/161.cp.gz
@@ -3613,6 +3579,9 @@ drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/azerty/
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/azerty/fr-pc.map.gz
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/azerty/wangbe2.map.gz
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/azerty/wangbe.map.gz
+drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/bepo/
+-rw-r--r--	root/root	usr/share/kbd/keymaps/i386/bepo/fr-bepo-latin9.map.gz
+-rw-r--r--	root/root	usr/share/kbd/keymaps/i386/bepo/fr-bepo.map.gz
 drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/colemak/
 -rw-r--r--	root/root	usr/share/kbd/keymaps/i386/colemak/en-latin9.map.gz
 drwxr-xr-x	root/root	usr/share/kbd/keymaps/i386/dvorak/
@@ -3907,6 +3876,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/certtool.1
 -rw-r--r--	root/root	usr/share/man/man1/chacl.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/chage.1
+-rw-r--r--	root/root	usr/share/man/man1/checkmk.1
 -rw-r--r--	root/root	usr/share/man/man1/chem.1
 -rw-r--r--	root/root	usr/share/man/man1/chfn.1
 -rw-r--r--	root/root	usr/share/man/man1/chrt.1
@@ -3921,12 +3891,6 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/column.1
 -rw-r--r--	root/root	usr/share/man/man1/crl.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/crl2pkcs7.1ssl
--rw-r--r--	root/root	usr/share/man/man1/dbus-cleanup-sockets.1
--rw-r--r--	root/root	usr/share/man/man1/dbus-daemon.1
--rw-r--r--	root/root	usr/share/man/man1/dbus-launch.1
--rw-r--r--	root/root	usr/share/man/man1/dbus-monitor.1
--rw-r--r--	root/root	usr/share/man/man1/dbus-send.1
--rw-r--r--	root/root	usr/share/man/man1/dbus-uuidgen.1
 -rw-r--r--	root/root	usr/share/man/man1/deallocvt.1
 -rw-r--r--	root/root	usr/share/man/man1/dgst.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/dhparam.1ssl
@@ -3993,6 +3957,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/gzexe.1
 -rw-r--r--	root/root	usr/share/man/man1/gzip.1
 -rw-r--r--	root/root	usr/share/man/man1/hexdump.1
+-rw-r--r--	root/root	usr/share/man/man1/hmac256.1
 -rw-r--r--	root/root	usr/share/man/man1/hostname.1
 -rw-r--r--	root/root	usr/share/man/man1/hostnamectl.1
 -rw-r--r--	root/root	usr/share/man/man1/hpftodit.1
@@ -4020,9 +3985,11 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/localectl.1
 -rw-r--r--	root/root	usr/share/man/man1/logger.1
 -rw-r--r--	root/root	usr/share/man/man1/login.1
+-rw-r--r--	root/root	usr/share/man/man1/loginctl.1
 -rw-r--r--	root/root	usr/share/man/man1/look.1
 -rw-r--r--	root/root	usr/share/man/man1/lookbib.1
 -rw-r--r--	root/root	usr/share/man/man1/lscpu.1
+-rw-r--r--	root/root	usr/share/man/man1/machinectl.1
 -rw-r--r--	root/root	usr/share/man/man1/man.1
 -rw-r--r--	root/root	usr/share/man/man1/man2html.1
 -rw-r--r--	root/root	usr/share/man/man1/mcookie.1
@@ -4061,6 +4028,7 @@ lrwxrwxrwx	root/root	usr/share/man/man1/mdc2.1ssl -> dgst.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/pgrep.1
 -rw-r--r--	root/root	usr/share/man/man1/pic.1
 -rw-r--r--	root/root	usr/share/man/man1/pic2graph.1
+-rw-r--r--	root/root	usr/share/man/man1/pidof.1
 -rw-r--r--	root/root	usr/share/man/man1/pkcs12.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/pkcs7.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/pkcs8.1ssl
@@ -4110,11 +4078,9 @@ lrwxrwxrwx	root/root	usr/share/man/man1/sh.1 -> bash.1
 lrwxrwxrwx	root/root	usr/share/man/man1/sha1.1ssl -> dgst.1ssl
 lrwxrwxrwx	root/root	usr/share/man/man1/sha.1ssl -> dgst.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/showkey.1
--rw-r--r--	root/root	usr/share/man/man1/skill.1
 -rw-r--r--	root/root	usr/share/man/man1/slabtop.1
 lrwxrwxrwx	root/root	usr/share/man/man1/slogin.1 -> ./ssh.1
 -rw-r--r--	root/root	usr/share/man/man1/smime.1ssl
--rw-r--r--	root/root	usr/share/man/man1/snice.1
 -rw-r--r--	root/root	usr/share/man/man1/soelim.1
 -rw-r--r--	root/root	usr/share/man/man1/speed.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/spkac.1ssl
@@ -4142,6 +4108,7 @@ lrwxrwxrwx	root/root	usr/share/man/man1/slogin.1 -> ./ssh.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-machine-id-setup.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-notify.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-nspawn.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-run.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-tty-ask-password-agent.1
 -rw-r--r--	root/root	usr/share/man/man1/tabs.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/tailf.1
@@ -5094,6 +5061,8 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_alert_get_strname.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_alert_send.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_alert_send_appropriate.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_alpn_get_selected_protocol.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_alpn_set_protocols.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_anon_allocate_client_credentials.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_anon_allocate_server_credentials.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_anon_free_client_credentials.3
@@ -5108,18 +5077,21 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_activation_time_peers.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_allocate_credentials.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_client_get_request_status.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_client_set_retrieve_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_expiration_time_peers.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_free_ca_names.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_free_cas.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_free_credentials.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_free_crls.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_free_keys.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_get_crt_raw.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_get_issuer.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_get_ours.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_get_peers.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_get_peers_subkey_id.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_send_x509_rdn_sequence.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_server_set_request.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_server_set_retrieve_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_dh_params.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_key.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_ocsp_status_request_file.3
@@ -5136,6 +5108,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_retrieve_function2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_retrieve_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_rsa_export_params.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_trust_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_verify_flags.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_verify_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_verify_limits.3
@@ -5143,7 +5116,9 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_crl_file.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_crl_mem.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_key.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_key_file2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_key_file.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_key_mem2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_key_mem.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_simple_pkcs12_file.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_certificate_set_x509_simple_pkcs12_mem.3
@@ -5169,8 +5144,10 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get_block_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get_id.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get_iv_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get_key_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get_name.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_get_tag_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_cipher_set_iv.3
@@ -5186,6 +5163,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_credentials_clear.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_credentials_set.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_db_check_entry.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_db_check_entry_time.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_db_get_ptr.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_db_remove_session.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_db_set_cache_expiration.3
@@ -5209,6 +5187,9 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_dh_params_import_raw.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_dh_params_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_dh_set_prime_bits.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_digest_get_id.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_digest_get_name.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_digest_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_dtls_cookie_send.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_dtls_cookie_verify.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_dtls_get_data_mtu.3
@@ -5224,6 +5205,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_ecc_curve_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_error_is_fatal.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_error_to_alert.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_est_record_overhead_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_fingerprint.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_global_deinit.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_global_init.3
@@ -5234,11 +5216,14 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_global_set_mutex.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_global_set_time_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_description_get_name.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_get_last_in.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_get_last_out.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_set_hook_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_set_max_packet_length.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_set_post_client_hello_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_set_private_extensions.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_set_random.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_handshake_set_timeout.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_hash.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_hash_deinit.3
@@ -5261,6 +5246,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_hmac_get_len.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_hmac_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_hmac_output.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_hmac_set_nonce.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_key_generate.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_kx_get.3
@@ -5273,6 +5259,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_mac_get_id.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_mac_get_key_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_mac_get_name.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_mac_get_nonce_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_mac_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_mac_set_priority.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_ocsp_req_add_cert.3
@@ -5365,6 +5352,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_revoked_status.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_subkey_count.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_subkey_creation_time.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_subkey_expiration_time.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_subkey_fingerprint.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_subkey_id.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_openpgp_privkey_get_subkey_idx.3
@@ -5397,10 +5385,12 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_deinit.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_delete_url.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_get_pin_function.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_get_raw_issuer.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_deinit.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_export2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_export.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_export3.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_export_url.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_get_info.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_obj_get_type.3
@@ -5418,12 +5408,14 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_privkey_import_url.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_privkey_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_privkey_set_pin_function.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_privkey_status.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_reinit.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_set_pin_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_set_token_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_get_flags.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_get_info.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_get_mechanism.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_get_random.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_get_url.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_init.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pkcs11_token_set_pin.3
@@ -5474,11 +5466,14 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_prf.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_prf_raw.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_certificate_type_list.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_cipher_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_compression_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_deinit.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_ecc_curve_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_get_cipher_suite_index.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_init.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_kx_list.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_mac_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_protocol_list.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_set.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_priority_set_direct.3
@@ -5502,6 +5497,8 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_privkey_set_pin_function.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_privkey_sign_data.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_privkey_sign_hash.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_privkey_sign_raw_data.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_privkey_status.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_protocol_get_id.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_protocol_get_name.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_protocol_get_version.3
@@ -5560,17 +5557,27 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pubkey_verify_hash2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_pubkey_verify_hash.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_random_art.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_range_split.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_can_use_length_hiding.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_check_corked.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_check_pending.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_cork.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_disable_padding.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_get_direction.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_get_discarded.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_get_max_size.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_overhead_size.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_recv.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_recv_seq.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_send.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_send_range.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_set_max_empty_records.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_record_set_max_size.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_set_timeout.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_record_uncork.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_rehandshake.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_rnd.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_rnd_refresh.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_rsa_export_get_modulus_bits.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_rsa_export_get_pubkey.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_rsa_params_cpy.3
@@ -5588,8 +5595,10 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_server_name_set.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_channel_binding.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_enable_compatibility_mode.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_session_force_valid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_get_data2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_get_data.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_session_get_desc.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_get_id2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_get_id.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_get_ptr.3
@@ -5597,6 +5606,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_is_resumed.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_resumption_requested.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_set_data.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_session_set_id.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_set_premaster.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_set_ptr.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_session_ticket_enable_client.3
@@ -5605,6 +5615,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_set_default_export_priority.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_set_default_priority.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_sign_algorithm_get.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_sign_algorithm_get_client.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_sign_algorithm_get_requested.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_sign_callback_get.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_sign_callback_set.3
@@ -5652,10 +5663,14 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_tpm_key_list_get_url.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_tpm_privkey_delete.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_tpm_privkey_generate.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_get_int2.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_get_int.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_get_ptr2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_get_ptr.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_errno.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_errno_function.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_int2.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_int.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_ptr2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_ptr.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_transport_set_pull_function.3
@@ -5676,6 +5691,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_extension_data.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_extension_info.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_extension_oid.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_issuer_dn2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_issuer_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_issuer_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crl_get_next_update.3
@@ -5709,6 +5725,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_attribute_info.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_basic_constraints.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_challenge_password.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_dn2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_get_dn_oid.3
@@ -5731,6 +5748,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_attribute_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_basic_constraints.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_challenge_password.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_key.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crq_set_key_purpose_oid.3
@@ -5757,6 +5775,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_basic_constraints.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_ca_status.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_crl_dist_points.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_dn2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_dn_oid.3
@@ -5770,6 +5789,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_alt_name2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_alt_name.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_alt_othername_oid.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_dn2.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_get_issuer_dn_oid.3
@@ -5816,9 +5836,11 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_crl_dist_points.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_crq.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_crq_extensions.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_expiration_time.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_extension_by_oid.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_issuer_dn.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_issuer_dn_by_oid.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_key.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_crt_set_key_purpose_oid.3
@@ -5888,6 +5910,9 @@ lrwxrwxrwx	root/root	usr/share/man/man3/getwin_sp.3ncurses.gz -> sp_funcs.3ncurs
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_deinit.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_get_issuer.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_init.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_remove_cas.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_remove_trust_file.3
+-rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_remove_trust_mem.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_verify_crt.3
 -rw-r--r--	root/root	usr/share/man/man3/gnutls_x509_trust_list_verify_named_crt.3
 lrwxrwxrwx	root/root	usr/share/man/man3/ground_panel.3ncurses.gz -> sp_funcs.3ncurses.gz
@@ -6362,6 +6387,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/pcre32_version.3 -> pcre_version.3
 -rw-r--r--	root/root	usr/share/man/man3/pcre_copy_named_substring.3
 -rw-r--r--	root/root	usr/share/man/man3/pcre_copy_substring.3
 -rw-r--r--	root/root	usr/share/man/man3/pcrecpp.3
+-rw-r--r--	root/root	usr/share/man/man3/pcredemo.3
 -rw-r--r--	root/root	usr/share/man/man3/pcre_dfa_exec.3
 -rw-r--r--	root/root	usr/share/man/man3/pcre_exec.3
 -rw-r--r--	root/root	usr/share/man/man3/pcre_free_study.3
@@ -6628,6 +6654,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/scr_set_sp.3ncurses.gz -> sp_funcs.3ncur
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_add_match.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_APPEND.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_close.3
+-rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_CURRENT_USER.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_enumerate_data.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_enumerate_unique.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_flush_matches.3
@@ -6655,6 +6682,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/scr_set_sp.3ncurses.gz -> sp_funcs.3ncur
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_NOP.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_open.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_open_directory.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_open_files.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_perror.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_previous.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_previous_skip.3
@@ -6676,7 +6704,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/scr_set_sp.3ncurses.gz -> sp_funcs.3ncur
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_set_data_threshold.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_stream_fd.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_SUPPRESS_LOCATION.3
--rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_SYSTEM_ONLY.3
+-rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_SYSTEM.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_test_cursor.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_wait.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_listen_fds.3
@@ -7300,6 +7328,18 @@ lrwxrwxrwx	root/root	usr/share/man/man3/X509_VERIFY_PARAM_set_depth.3ssl -> X509
 lrwxrwxrwx	root/root	usr/share/man/man3/X509_VERIFY_PARAM_set_purpose.3ssl -> X509_VERIFY_PARAM_set_flags.3ssl
 lrwxrwxrwx	root/root	usr/share/man/man3/X509_VERIFY_PARAM_set_time.3ssl -> X509_VERIFY_PARAM_set_flags.3ssl
 lrwxrwxrwx	root/root	usr/share/man/man3/X509_VERIFY_PARAM_set_trust.3ssl -> X509_VERIFY_PARAM_set_flags.3ssl
+-rw-r--r--	root/root	usr/share/man/man3/xssl_client_init.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_cred_deinit.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_cred_init.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_deinit.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_flush.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_getdelim.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_get_session.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_printf.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_read.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_server_init.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_sinit.3
+-rw-r--r--	root/root	usr/share/man/man3/xssl_write.3
 -rw-r--r--	root/root	usr/share/man/man3/zlib.3
 drwxr-xr-x	root/root	usr/share/man/man5/
 -rw-r--r--	root/root	usr/share/man/man5/acl.5.gz
@@ -7357,8 +7397,11 @@ lrwxrwxrwx	root/root	usr/share/man/man5/host.deny.5.gz -> hosts_access.5.gz
 -rw-r--r--	root/root	usr/share/man/man5/systemd.mount.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.path.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.preset.5
+-rw-r--r--	root/root	usr/share/man/man5/systemd.resource-control.5
+-rw-r--r--	root/root	usr/share/man/man5/systemd.scope.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.service.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd-sleep.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/systemd.slice.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.snapshot.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.socket.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.swap.5
@@ -7523,13 +7566,17 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-ask-password-console.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-ask-password-wall.path.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-ask-password-wall.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-backlight.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-backlight@.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-binfmt.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-binfmt.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-efi-boot-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-fsck.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-fsck-root.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-fsck@.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-fstab-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-getty-generator.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-gpt-auto-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-halt.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hibernate.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hostnamed.8
@@ -7546,14 +7593,15 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-localed.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-logind.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-logind.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-machined.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-machined.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-modules-load.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-modules-load.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-poweroff.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-quotacheck.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-quotacheck.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-random-seed.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-random-seed-load.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-random-seed-save.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-random-seed.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-readahead.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-readahead-collect.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-readahead-done.service.8
@@ -7584,7 +7632,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-udevd.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-update-utmp.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-update-utmp-runlevel.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-update-utmp-shutdown.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-update-utmp.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-vconsole-setup.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-vconsole-setup.service.8
 -rw-r--r--	root/root	usr/share/man/man8/tcpd.8
@@ -7596,6 +7644,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/udevadm.8
 -rw-r--r--	root/root	usr/share/man/man8/umount.8
 -rw-r--r--	root/root	usr/share/man/man8/update-pciids.8
+-rw-r--r--	root/root	usr/share/man/man8/usbhid-dump.8
 -rw-r--r--	root/root	usr/share/man/man8/useradd.8
 -rw-r--r--	root/root	usr/share/man/man8/userdel.8
 -rw-r--r--	root/root	usr/share/man/man8/usermod.8
@@ -11511,9 +11560,32 @@ drwxr-xr-x	root/root	usr/share/vim/syntax/
 -rw-r--r--	root/root	usr/share/vim/syntax/zimbu.vim
 -rw-r--r--	root/root	usr/share/vim/syntax/zsh.vim
 -rw-r--r--	root/root	usr/share/vim/vimrc
+drwxr-xr-x	root/root	usr/share/zsh/
+drwxr-xr-x	root/root	usr/share/zsh/site-functions/
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_hostnamectl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_journalctl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_kernel-install
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_localectl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_loginctl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_machinectl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_sd_hosts_or_user_at_host
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemctl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-analyze
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-coredumpctl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-delta
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-inhibit
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-nspawn
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-tmpfiles
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_timedatectl
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_udevadm
 drwxr-xr-x	root/root	usr/src/
 drwxr-xr-x	root/root	usr/src/linux/
 -rw-r--r--	root/root	usr/src/linux/Module.symvers
+drwxr-xr-x	root/root	usr/usr/
+drwxr-xr-x	root/root	usr/usr/lib/
+drwxr-xr-x	root/root	usr/usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/usr/lib/pkgconfig/libcap.pc
 lrwxrwxrwx	root/root	usr/var -> ../var
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/db/

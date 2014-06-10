@@ -5,14 +5,18 @@ drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/
 hrwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/c++ link to arm-cortex_a8-linux-gnueabi/bin/g++
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/g++
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/gcc
--rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/ld.bfd
-hrwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/ld link to arm-cortex_a8-linux-gnueabi/bin/ld.bfd
+-rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/ld
+hrwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/ld.bfd link to arm-cortex_a8-linux-gnueabi/bin/ld
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/nm
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/objcopy
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/objdump
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/ranlib
 -rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/bin/strip
 drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/debug-root/
+drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/debug-root/usr/
+drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/debug-root/usr/bin/
+-rwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/debug-root/usr/bin/gdbserver
+drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/debug-root/usr/share/
 drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/include/
 drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/include/c++/
 drwxr-xr-x	root/root	arm-cortex_a8-linux-gnueabi/include/c++/4.8.1/
@@ -2279,17 +2283,19 @@ lrwxrwxrwx	root/root	bin/arm-cortex_a8-linux-gnueabi-cc -> arm-cortex_a8-linux-g
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-cpp
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ct-ng.config
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-elfedit
--rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc-4.8.1
+-rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc
+hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc-4.8.1 link to bin/arm-cortex_a8-linux-gnueabi-gcc
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc-ar
-hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc link to bin/arm-cortex_a8-linux-gnueabi-gcc-4.8.1
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc-nm
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcc-ranlib
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gcov
+-rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gdb
+-rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gdbtui
 hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-g++ link to bin/arm-cortex_a8-linux-gnueabi-c++
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-gprof
-hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ld.bfd link to arm-cortex_a8-linux-gnueabi/bin/ld.bfd
+hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ld.bfd link to arm-cortex_a8-linux-gnueabi/bin/ld
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ldd
-hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ld link to arm-cortex_a8-linux-gnueabi/bin/ld.bfd
+hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ld link to arm-cortex_a8-linux-gnueabi/bin/ld
 hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-nm link to arm-cortex_a8-linux-gnueabi/bin/nm
 hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-objcopy link to arm-cortex_a8-linux-gnueabi/bin/objcopy
 hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-objdump link to arm-cortex_a8-linux-gnueabi/bin/objdump
@@ -2300,6 +2306,8 @@ hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-ranlib link to arm-cortex_a
 -rwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-strings
 hrwxr-xr-x	root/root	bin/arm-cortex_a8-linux-gnueabi-strip link to arm-cortex_a8-linux-gnueabi/bin/strip
 drwxr-xr-x	root/root	include/
+drwxr-xr-x	root/root	include/gdb/
+-rw-r--r--	root/root	include/gdb/jit-reader.h
 drwxr-xr-x	root/root	lib/
 drwxr-xr-x	root/root	libexec/
 drwxr-xr-x	root/root	libexec/gcc/
@@ -2533,3 +2541,26 @@ drwxr-xr-x	root/root	share/gcc-4.8.1/python/libstdcxx/
 drwxr-xr-x	root/root	share/gcc-4.8.1/python/libstdcxx/v6/
 -rw-r--r--	root/root	share/gcc-4.8.1/python/libstdcxx/v6/__init__.py
 -rw-r--r--	root/root	share/gcc-4.8.1/python/libstdcxx/v6/printers.py
+drwxr-xr-x	root/root	share/gdb/
+-rw-r--r--	root/root	share/gdb/gdbinit
+drwxr-xr-x	root/root	share/gdb/python/
+drwxr-xr-x	root/root	share/gdb/python/gdb/
+drwxr-xr-x	root/root	share/gdb/python/gdb/command/
+-rw-r--r--	root/root	share/gdb/python/gdb/command/__init__.py
+-rw-r--r--	root/root	share/gdb/python/gdb/command/pretty_printers.py
+-rw-r--r--	root/root	share/gdb/python/gdb/command/prompt.py
+-rw-r--r--	root/root	share/gdb/python/gdb/__init__.py
+-rw-r--r--	root/root	share/gdb/python/gdb/printing.py
+-rw-r--r--	root/root	share/gdb/python/gdb/prompt.py
+-rw-r--r--	root/root	share/gdb/python/gdb/types.py
+drwxr-xr-x	root/root	share/gdb/syscalls/
+-rw-r--r--	root/root	share/gdb/syscalls/amd64-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/gdb-syscalls.dtd
+-rw-r--r--	root/root	share/gdb/syscalls/i386-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/mips-n32-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/mips-n64-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/mips-o32-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/ppc64-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/ppc-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/sparc64-linux.xml
+-rw-r--r--	root/root	share/gdb/syscalls/sparc-linux.xml

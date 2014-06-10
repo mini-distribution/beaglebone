@@ -285,7 +285,7 @@ drwxr-xr-x	root/root	lib/firmware/keyspan_pda/
 -rw-r--r--	root/root	lib/firmware/mts_edge.fw
 -rw-r--r--	root/root	lib/firmware/mts_gsm.fw
 -rw-r--r--	root/root	lib/firmware/rt2870.bin
-lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/ubuntu/work/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
+lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/lundmar/projects/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
 -rw-r--r--	root/root	lib/firmware/ti_3410.fw
 -rw-r--r--	root/root	lib/firmware/ti_5052.fw
 -rw-r--r--	root/root	lib/firmware/TT3201-001-01.dtbo
@@ -988,21 +988,13 @@ drwxr-xr-x	root/root	lib/modules/3.8.13/kernel/sound/usb/misc/
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.alias.bin
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.builtin
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.builtin.bin
--rw-r--r--	root/root	lib/modules/3.8.13/modules.ccwmap
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.dep
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.dep.bin
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.devname
--rw-r--r--	root/root	lib/modules/3.8.13/modules.ieee1394map
--rw-r--r--	root/root	lib/modules/3.8.13/modules.inputmap
--rw-r--r--	root/root	lib/modules/3.8.13/modules.isapnpmap
--rw-r--r--	root/root	lib/modules/3.8.13/modules.ofmap
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.order
--rw-r--r--	root/root	lib/modules/3.8.13/modules.pcimap
--rw-r--r--	root/root	lib/modules/3.8.13/modules.seriomap
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.softdep
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.symbols
 -rw-r--r--	root/root	lib/modules/3.8.13/modules.symbols.bin
--rw-r--r--	root/root	lib/modules/3.8.13/modules.usbmap
 drwxr-xr-x	root/root	media/
 drwxr-xr-x	root/root	mnt/
 drwxr-xr-x	root/root	opt/
@@ -1102,8 +1094,8 @@ lrwxrwxrwx	root/root	usr/bin/ex -> vim
 -rwxr-xr-x	root/root	usr/bin/fold
 -rwxr-xr-x	root/root	usr/bin/free
 -rwxr-xr-x	root/root	usr/bin/fuser
--rwxr-xr-x	root/root	usr/bin/gawk-4.1.0
-hrwxr-xr-x	root/root	usr/bin/gawk link to usr/bin/gawk-4.1.0
+-rwxr-xr-x	root/root	usr/bin/gawk
+hrwxr-xr-x	root/root	usr/bin/gawk-4.1.0 link to usr/bin/gawk
 -rwxr-xr-x	root/root	usr/bin/gdbus
 -rwxr-xr-x	root/root	usr/bin/gdbus-codegen
 -rwxr-xr-x	root/root	usr/bin/gdiffmk

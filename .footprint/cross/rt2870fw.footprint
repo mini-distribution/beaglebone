@@ -1,4 +1,4 @@
 drwxr-xr-x	root/root	lib/
 drwxr-xr-x	root/root	lib/firmware/
 -rw-r--r--	root/root	lib/firmware/rt2870.bin
-lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/ubuntu/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin
+lrwxrwxrwx	root/root	lib/firmware/rt3070.bin -> /home/lundmar/projects/beaglebone/build/work/cross/rt2870fw/pkg/lib/firmware/rt2870.bin

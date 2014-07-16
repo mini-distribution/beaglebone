@@ -6,6 +6,18 @@ drwxr-xr-x	root/root	usr/bin/
 -r-xr-xr-x	root/root	usr/bin/bashbug
 lrwxrwxrwx	root/root	usr/bin/sh -> bash
 drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/bash/
+-rw-r--r--	root/root	usr/share/doc/bash/bash.html
+-rw-r--r--	root/root	usr/share/doc/bash/bashref.html
+-rw-r--r--	root/root	usr/share/doc/bash/CHANGES
+-rw-r--r--	root/root	usr/share/doc/bash/COMPAT
+-rw-r--r--	root/root	usr/share/doc/bash/FAQ
+-rw-r--r--	root/root	usr/share/doc/bash/INTRO
+-rw-r--r--	root/root	usr/share/doc/bash/NEWS
+-rw-r--r--	root/root	usr/share/doc/bash/POSIX
+-rw-r--r--	root/root	usr/share/doc/bash/RBASH
+-rw-r--r--	root/root	usr/share/doc/bash/README
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/bash.1

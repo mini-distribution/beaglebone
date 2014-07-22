@@ -14,6 +14,8 @@ drwxr-xr-x	root/root	etc/kernel/
 drwxr-xr-x	root/root	etc/kernel/install.d/
 drwxr-xr-x	root/root	etc/modules-load.d/
 lrwxrwxrwx	root/root	etc/mtab -> /proc/self/mounts
+drwxr-xr-x	root/root	etc/profile.d/
+-rw-r--r--	root/root	etc/profile.d/systemd
 drwxr-xr-x	root/root	etc/sysctl.d/
 drwxr-xr-x	root/root	etc/systemd/
 -rw-r--r--	root/root	etc/systemd/bootchart.conf
@@ -29,11 +31,8 @@ drwxr-xr-x	root/root	etc/systemd/system/getty.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/getty.target.wants/getty@tty1.service -> ../../../../usr/lib/systemd/system/getty@.service
 drwxr-xr-x	root/root	etc/systemd/system/multi-user.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../usr/lib/systemd/system/remote-fs.target
-lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/systemd-networkd.service -> ../../../../usr/lib/systemd/system/systemd-networkd.service
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/systemd-resolved.service -> ../../../../usr/lib/systemd/system/systemd-resolved.service
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/systemd-timesyncd.service -> ../../../../usr/lib/systemd/system/systemd-timesyncd.service
-drwxr-xr-x	root/root	etc/systemd/system/network-online.target.wants/
-lrwxrwxrwx	root/root	etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service -> ../../../../usr/lib/systemd/system/systemd-networkd-wait-online.service
 -rw-r--r--	root/root	etc/systemd/timesyncd.conf
 drwxr-xr-x	root/root	etc/systemd/user/
 -rw-r--r--	root/root	etc/systemd/user.conf
@@ -200,8 +199,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/default.target -> multi-user.target
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-machined
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-modules-load
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-multi-seat-x
--rwxr-xr-x	root/root	usr/lib/systemd/systemd-networkd
--rwxr-xr-x	root/root	usr/lib/systemd/systemd-networkd-wait-online
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-quotacheck
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-random-seed
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-readahead
@@ -379,8 +376,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-logind.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-machined.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-modules-load.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-networkd.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-networkd-wait-online.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-nspawn@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-poweroff.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-quotacheck.service
@@ -690,8 +685,6 @@ drwxr-xr-x	root/root	usr/share/man/man5/
 -rw-r--r--	root/root	usr/share/man/man5/systemd.kill.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.link.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.mount.5
--rw-r--r--	root/root	usr/share/man/man5/systemd.netdev.5
--rw-r--r--	root/root	usr/share/man/man5/systemd.network.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.path.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.preset.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.resource-control.5
@@ -765,10 +758,6 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-machined.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-modules-load.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-modules-load.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-networkd.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-networkd.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-networkd-wait-online.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-networkd-wait-online.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-poweroff.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-quotacheck.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-quotacheck.service.8

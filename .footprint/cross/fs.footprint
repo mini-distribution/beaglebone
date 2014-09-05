@@ -22,6 +22,7 @@ drwxr-xr-x	root/root	etc/dbus-1/system.d/
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.locale1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.machine1.conf
+-rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.resolve1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.systemd1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.timedate1.conf
 -rw-r--r--	root/root	etc/group
@@ -68,7 +69,6 @@ drwxr-xr-x	root/root	etc/systemd/
 -rw-r--r--	root/root	etc/systemd/journald.conf
 -rw-r--r--	root/root	etc/systemd/logind.conf
 drwxr-xr-x	root/root	etc/systemd/network/
-drwxr-xr-x	root/root	etc/systemd/ntp-units.d/
 -rw-r--r--	root/root	etc/systemd/resolved.conf
 drwxr-xr-x	root/root	etc/systemd/system/
 -rw-r--r--	root/root	etc/systemd/system.conf
@@ -82,12 +82,13 @@ drwxr-xr-x	root/root	etc/systemd/system/multi-user.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/dbus.service -> ../dbus.service
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../usr/lib/systemd/system/remote-fs.target
 lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/systemd-resolved.service -> ../../../../usr/lib/systemd/system/systemd-resolved.service
-lrwxrwxrwx	root/root	etc/systemd/system/multi-user.target.wants/systemd-timesyncd.service -> ../../../../usr/lib/systemd/system/systemd-timesyncd.service
 drwxr-xr-x	root/root	etc/systemd/system/sockets.target.wants/
 lrwxrwxrwx	root/root	etc/systemd/system/sockets.target.wants/dbus.socket -> ../dbus.socket
 -rw-r--r--	root/root	etc/systemd/system/sshdgenkeys.service
 -rw-r--r--	root/root	etc/systemd/system/sshd@.service
 -rw-r--r--	root/root	etc/systemd/system/sshd.socket
+drwxr-xr-x	root/root	etc/systemd/system/sysinit.target.wants/
+lrwxrwxrwx	root/root	etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service -> ../../../../usr/lib/systemd/system/systemd-timesyncd.service
 -rw-r--r--	root/root	etc/systemd/system/wpa_supplicant.service
 -rw-r--r--	root/root	etc/systemd/timesyncd.conf
 drwxr-xr-x	root/root	etc/systemd/user/
@@ -1213,6 +1214,17 @@ lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 lrwxrwxrwx	root/root	usr/bin/lsmod -> /usr/bin/kmod
 -rwxr-xr-x	root/root	usr/bin/lsusb
 -rwxr-xr-x	root/root	usr/bin/lsusb.py
+lrwxrwxrwx	root/root	usr/bin/lzcat -> xz
+lrwxrwxrwx	root/root	usr/bin/lzcmp -> xzdiff
+lrwxrwxrwx	root/root	usr/bin/lzdiff -> xzdiff
+lrwxrwxrwx	root/root	usr/bin/lzegrep -> xzgrep
+lrwxrwxrwx	root/root	usr/bin/lzfgrep -> xzgrep
+lrwxrwxrwx	root/root	usr/bin/lzgrep -> xzgrep
+lrwxrwxrwx	root/root	usr/bin/lzless -> xzless
+-rwxr-xr-x	root/root	usr/bin/lzmadec
+-rwxr-xr-x	root/root	usr/bin/lzmainfo
+lrwxrwxrwx	root/root	usr/bin/lzma -> xz
+lrwxrwxrwx	root/root	usr/bin/lzmore -> xzmore
 -rwxr-xr-x	root/root	usr/bin/machinectl
 -rwxr-xr-x	root/root	usr/bin/makedb
 -rwxr-xr-x	root/root	usr/bin/man
@@ -1366,9 +1378,10 @@ lrwxrwxrwx	root/root	usr/bin/slogin -> ./ssh
 -rwxr-xr-x	root/root	usr/bin/systemd-cat
 -rwxr-xr-x	root/root	usr/bin/systemd-cgls
 -rwxr-xr-x	root/root	usr/bin/systemd-cgtop
-lrwxrwxrwx	root/root	usr/bin/systemd-coredumpctl -> coredumpctl
 -rwxr-xr-x	root/root	usr/bin/systemd-delta
 -rwxr-xr-x	root/root	usr/bin/systemd-detect-virt
+-rwxr-xr-x	root/root	usr/bin/systemd-escape
+-rwxr-xr-x	root/root	usr/bin/systemd-firstboot
 -rwxr-xr-x	root/root	usr/bin/systemd-inhibit
 -rwxr-xr-x	root/root	usr/bin/systemd-machine-id-setup
 -rwxr-xr-x	root/root	usr/bin/systemd-notify
@@ -1384,6 +1397,7 @@ lrwxrwxrwx	root/root	usr/bin/systemd-stdio-bridge -> ../lib/systemd/systemd-bus-
 -rwxr-xr-x	root/root	usr/bin/tac
 -rwxr-xr-x	root/root	usr/bin/tail
 -rwxr-xr-x	root/root	usr/bin/tailf
+-rwxr-xr-x	root/root	usr/bin/tar
 -rwxr-xr-x	root/root	usr/bin/taskset
 -rwxr-xr-x	root/root	usr/bin/tbl
 -rwxr-xr-x	root/root	usr/bin/tee
@@ -1415,7 +1429,9 @@ lrwxrwxrwx	root/root	usr/bin/systemd-stdio-bridge -> ../lib/systemd/systemd-bus-
 -rwxr-xr-x	root/root	usr/bin/unicode_stop
 -rwxr-xr-x	root/root	usr/bin/uniq
 -rwxr-xr-x	root/root	usr/bin/unlink
+lrwxrwxrwx	root/root	usr/bin/unlzma -> xz
 -rwxr-xr-x	root/root	usr/bin/unshare
+lrwxrwxrwx	root/root	usr/bin/unxz -> xz
 -rwxr-xr-x	root/root	usr/bin/uptime
 -rwxr-xr-x	root/root	usr/bin/usb-devices
 -rwxr-xr-x	root/root	usr/bin/usbhid-dump
@@ -1442,6 +1458,16 @@ lrwxrwxrwx	root/root	usr/bin/vimdiff -> vim
 -rwxr-xr-x	root/root	usr/bin/xargs
 -rwxr-xr-x	root/root	usr/bin/xmlwf
 -rwxr-xr-x	root/root	usr/bin/xtrace
+-rwxr-xr-x	root/root	usr/bin/xz
+lrwxrwxrwx	root/root	usr/bin/xzcat -> xz
+lrwxrwxrwx	root/root	usr/bin/xzcmp -> xzdiff
+-rwxr-xr-x	root/root	usr/bin/xzdec
+-rwxr-xr-x	root/root	usr/bin/xzdiff
+lrwxrwxrwx	root/root	usr/bin/xzegrep -> xzgrep
+lrwxrwxrwx	root/root	usr/bin/xzfgrep -> xzgrep
+-rwxr-xr-x	root/root	usr/bin/xzgrep
+-rwxr-xr-x	root/root	usr/bin/xzless
+-rwxr-xr-x	root/root	usr/bin/xzmore
 -rwxr-xr-x	root/root	usr/bin/yes
 lrwxrwxrwx	root/root	usr/bin/ypdomainname -> hostname
 -rwxr-xr-x	root/root	usr/bin/zcat
@@ -1502,6 +1528,7 @@ hrwxr-xr-x	root/root	usr/libexec/getconf/POSIX_V7_ILP32_OFFBIG link to usr/bin/g
 hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_ILP32_OFF32 link to usr/bin/getconf
 hrwxr-xr-x	root/root	usr/libexec/getconf/XBS5_ILP32_OFFBIG link to usr/bin/getconf
 -rwsr-xr-x	root/root	usr/libexec/pt_chown
+-rwxr-xr-x	root/root	usr/libexec/rmt
 -rwxr-xr-x	root/root	usr/libexec/sftp-server
 -rws--x--x	root/root	usr/libexec/ssh-keysign
 -rwxr-xr-x	root/root	usr/libexec/ssh-pkcs11-helper
@@ -1908,6 +1935,9 @@ lrwxrwxrwx	root/root	usr/lib/libiptc.so -> libiptc.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libkmod.so.2.2.8
 lrwxrwxrwx	root/root	usr/lib/libkmod.so.2 -> libkmod.so.2.2.8
 lrwxrwxrwx	root/root	usr/lib/libkmod.so -> libkmod.so.2.2.8
+-rwxr-xr-x	root/root	usr/lib/liblzma.so.5.0.5
+lrwxrwxrwx	root/root	usr/lib/liblzma.so.5 -> liblzma.so.5.0.5
+lrwxrwxrwx	root/root	usr/lib/liblzma.so -> liblzma.so.5.0.5
 -rwxr-xr-x	root/root	usr/lib/libmenu.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libmenu.so.5 -> libmenu.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libmenu.so -> libmenu.so.5
@@ -1968,8 +1998,10 @@ lrwxrwxrwx	root/root	usr/lib/libnss_dns.so -> ../../lib/libnss_dns.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_files.so -> ../../lib/libnss_files.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_hesiod.so -> ../../lib/libnss_hesiod.so.2
 -rwxr-xr-x	root/root	usr/lib/libnss_myhostname.so.2
+-rwxr-xr-x	root/root	usr/lib/libnss_mymachines.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_nisplus.so -> ../../lib/libnss_nisplus.so.2
 lrwxrwxrwx	root/root	usr/lib/libnss_nis.so -> ../../lib/libnss_nis.so.2
+-rwxr-xr-x	root/root	usr/lib/libnss_resolve.so.2
 -rwxr-xr-x	root/root	usr/lib/libpanel.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libpanel.so.5 -> libpanel.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libpanel.so -> libpanel.so.5
@@ -2015,16 +2047,16 @@ lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.11
 -rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.9.3
 lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.9.3
 lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.9.3
--rwxr-xr-x	root/root	usr/lib/libsystemd.so.0.3.1
-lrwxrwxrwx	root/root	usr/lib/libsystemd.so.0 -> libsystemd.so.0.3.1
-lrwxrwxrwx	root/root	usr/lib/libsystemd.so -> libsystemd.so.0.3.1
+-rwxr-xr-x	root/root	usr/lib/libsystemd.so.0.4.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd.so.0 -> libsystemd.so.0.4.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd.so -> libsystemd.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libthread_db.so -> ../../lib/libthread_db.so.1
 -rwxr-xr-x	root/root	usr/lib/libtinfo.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libtinfo.so.5 -> libtinfo.so.5.9
 lrwxrwxrwx	root/root	usr/lib/libtinfo.so -> libtinfo.so.5
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.5.0
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.5.0
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.6.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.6.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.6.0
 -rwxr-xr-x	root/root	usr/lib/libusb-1.0.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libusb-1.0.so.0 -> libusb-1.0.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/libusb-1.0.so -> libusb-1.0.so.0.1.0
@@ -2067,6 +2099,7 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libipq.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libiptc.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libkmod.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/liblzma.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libnl-3.0.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libnl-cli-3.0.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libnl-genl-3.0.pc
@@ -2111,8 +2144,6 @@ drwxr-xr-x	root/root	usr/lib/systemd/network/
 -rw-r--r--	root/root	usr/lib/systemd/network/80-container-host0.network
 -rw-r--r--	root/root	usr/lib/systemd/network/80-container-ve.network
 -rw-r--r--	root/root	usr/lib/systemd/network/99-default.link
-drwxr-xr-x	root/root	usr/lib/systemd/ntp-units.d/
--rw-r--r--	root/root	usr/lib/systemd/ntp-units.d/90-systemd.list
 drwxr-xr-x	root/root	usr/lib/systemd/system/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/basic.target
@@ -2123,6 +2154,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedeskto
 lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.locale1.busname -> ../org.freedesktop.locale1.busname
 lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.login1.busname -> ../org.freedesktop.login1.busname
 lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.machine1.busname -> ../org.freedesktop.machine1.busname
+lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.resolve1.busname -> ../org.freedesktop.resolve1.busname
 lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.timedate1.busname -> ../org.freedesktop.timedate1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/connman.service
 -rw-r--r--	root/root	usr/lib/systemd/system/console-getty.service
@@ -2139,6 +2171,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.hostname1.servi
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.machine1.service -> systemd-machined.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.resolve1.service -> systemd-resolved.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-bus-proxyd
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-cgroups-agent
@@ -2162,6 +2195,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/default.target -> multi-user.target
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-remount-fs
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-reply-password
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-resolved
+-rwxr-xr-x	root/root	usr/lib/systemd/systemd-resolve-host
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-rfkill
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-shutdown
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-shutdownd
@@ -2225,6 +2259,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/multi-user.target.wants/systemd-user
 -rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.locale1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.login1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.machine1.busname
+-rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.resolve1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.timedate1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/paths.target
 -rw-r--r--	root/root	usr/lib/systemd/system/poweroff.target
@@ -2291,6 +2326,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/sys-kernel-conf
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount -> ../sys-kernel-debug.mount
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-ask-password-console.path -> ../systemd-ask-password-console.path
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service -> ../systemd-binfmt.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-firstboot.service -> ../systemd-firstboot.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journal-catalog-update.service -> ../systemd-journal-catalog-update.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service -> ../systemd-journald.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service -> ../systemd-journal-flush.service
@@ -2315,6 +2351,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-ask-password-wall.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-backlight@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-binfmt.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-firstboot.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-fsck-root.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-fsck@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-halt.service
@@ -2396,11 +2433,13 @@ lrwxrwxrwx	root/root	usr/lib/systemd/user/timers.target -> ../system/timers.targ
 drwxr-xr-x	root/root	usr/lib/sysusers.d/
 -rw-r--r--	root/root	usr/lib/sysusers.d/basic.conf
 -rw-r--r--	root/root	usr/lib/sysusers.d/systemd.conf
+-rw-r--r--	root/root	usr/lib/sysusers.d/systemd-remote.conf
 lrwxrwxrwx	root/root	usr/lib/terminfo -> ../share/terminfo
 drwxr-xr-x	root/root	usr/lib/tmpfiles.d/
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/etc.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/systemd.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/systemd-nologin.conf
+-rw-r--r--	root/root	usr/lib/tmpfiles.d/systemd-remote.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/tmp.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/var.conf
 drwxr-xr-x	root/root	usr/lib/udev/
@@ -2849,6 +2888,7 @@ drwxr-xr-x	root/root	usr/share/dbus-1/system-services/
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.locale1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.login1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.machine1.service
+-rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.resolve1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.systemd1.service
 -rw-r--r--	root/root	usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
 drwxr-xr-x	root/root	usr/share/doc/
@@ -2869,6 +2909,12 @@ drwxr-xr-x	root/root	usr/share/doc/util-linux/
 drwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/
 -rwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/getopt-parse.bash
 -rwxr-xr-x	root/root	usr/share/doc/util-linux/getopt/getopt-parse.tcsh
+drwxr-xr-x	root/root	usr/share/factory/
+drwxr-xr-x	root/root	usr/share/factory/etc/
+-rw-r--r--	root/root	usr/share/factory/etc/nsswitch.conf
+drwxr-xr-x	root/root	usr/share/factory/etc/pam.d/
+-rw-r--r--	root/root	usr/share/factory/etc/pam.d/other
+-rw-r--r--	root/root	usr/share/factory/etc/pam.d/system-auth
 drwxr-xr-x	root/root	usr/share/gdb/
 drwxr-xr-x	root/root	usr/share/gdb/auto-load/
 -rwxr-xr-x	root/root	usr/share/gdb/auto-load/libglib-2.0.so.0.4000.0-gdb.py
@@ -3338,6 +3384,12 @@ drwxr-xr-x	root/root	usr/share/groff/site-font/
 drwxr-xr-x	root/root	usr/share/groff/site-tmac/
 -rw-r--r--	root/root	usr/share/groff/site-tmac/man.local
 -rw-r--r--	root/root	usr/share/groff/site-tmac/mdoc.local
+drwxr-xr-x	root/root	usr/share/info/
+-rw-r--r--	root/root	usr/share/info/dir
+-rw-r--r--	root/root	usr/share/info/tar.info
+-rw-r--r--	root/root	usr/share/info/tar.info-1
+-rw-r--r--	root/root	usr/share/info/tar.info-2
+-rw-r--r--	root/root	usr/share/info/tar.info-3
 drwxr-xr-x	root/root	usr/share/kbd/
 drwxr-xr-x	root/root	usr/share/kbd/consolefonts/
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/161.cp.gz
@@ -3886,6 +3938,121 @@ drwxr-xr-x	root/root	usr/share/kbd/unimaps/
 -rw-r--r--	root/root	usr/share/kbd/unimaps/ruscii.uni
 -rw-r--r--	root/root	usr/share/kbd/unimaps/tcvn.uni
 -rw-r--r--	root/root	usr/share/kbd/unimaps/viscii.uni
+drwxr-xr-x	root/root	usr/share/locale/
+drwxr-xr-x	root/root	usr/share/locale/bg/
+drwxr-xr-x	root/root	usr/share/locale/bg/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/bg/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ca/
+drwxr-xr-x	root/root	usr/share/locale/ca/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ca/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/cs/
+drwxr-xr-x	root/root	usr/share/locale/cs/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/cs/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/da/
+drwxr-xr-x	root/root	usr/share/locale/da/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/da/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/de/
+drwxr-xr-x	root/root	usr/share/locale/de/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/de/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/el/
+drwxr-xr-x	root/root	usr/share/locale/el/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/el/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/eo/
+drwxr-xr-x	root/root	usr/share/locale/eo/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/eo/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/es/
+drwxr-xr-x	root/root	usr/share/locale/es/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/es/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/et/
+drwxr-xr-x	root/root	usr/share/locale/et/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/et/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/eu/
+drwxr-xr-x	root/root	usr/share/locale/eu/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/eu/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/fi/
+drwxr-xr-x	root/root	usr/share/locale/fi/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/fi/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/fr/
+drwxr-xr-x	root/root	usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/fr/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ga/
+drwxr-xr-x	root/root	usr/share/locale/ga/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ga/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/gl/
+drwxr-xr-x	root/root	usr/share/locale/gl/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/gl/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/hr/
+drwxr-xr-x	root/root	usr/share/locale/hr/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/hr/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/hu/
+drwxr-xr-x	root/root	usr/share/locale/hu/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/hu/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/id/
+drwxr-xr-x	root/root	usr/share/locale/id/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/id/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/it/
+drwxr-xr-x	root/root	usr/share/locale/it/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/it/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ja/
+drwxr-xr-x	root/root	usr/share/locale/ja/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ja/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ko/
+drwxr-xr-x	root/root	usr/share/locale/ko/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ko/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ky/
+drwxr-xr-x	root/root	usr/share/locale/ky/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ky/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ms/
+drwxr-xr-x	root/root	usr/share/locale/ms/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ms/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/nb/
+drwxr-xr-x	root/root	usr/share/locale/nb/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/nb/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/nl/
+drwxr-xr-x	root/root	usr/share/locale/nl/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/nl/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/pl/
+drwxr-xr-x	root/root	usr/share/locale/pl/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/pl/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/pt/
+drwxr-xr-x	root/root	usr/share/locale/pt_BR/
+drwxr-xr-x	root/root	usr/share/locale/pt_BR/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/pt_BR/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/pt/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/pt/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ro/
+drwxr-xr-x	root/root	usr/share/locale/ro/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ro/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/ru/
+drwxr-xr-x	root/root	usr/share/locale/ru/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/ru/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/sk/
+drwxr-xr-x	root/root	usr/share/locale/sk/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/sk/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/sl/
+drwxr-xr-x	root/root	usr/share/locale/sl/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/sl/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/sr/
+drwxr-xr-x	root/root	usr/share/locale/sr/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/sr/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/sv/
+drwxr-xr-x	root/root	usr/share/locale/sv/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/sv/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/tr/
+drwxr-xr-x	root/root	usr/share/locale/tr/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/tr/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/uk/
+drwxr-xr-x	root/root	usr/share/locale/uk/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/uk/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/vi/
+drwxr-xr-x	root/root	usr/share/locale/vi/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/vi/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/zh_CN/
+drwxr-xr-x	root/root	usr/share/locale/zh_CN/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/zh_CN/LC_MESSAGES/tar.mo
+drwxr-xr-x	root/root	usr/share/locale/zh_TW/
+drwxr-xr-x	root/root	usr/share/locale/zh_TW/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/zh_TW/LC_MESSAGES/tar.mo
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/addftinfo.1
@@ -4018,6 +4185,17 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/look.1
 -rw-r--r--	root/root	usr/share/man/man1/lookbib.1
 -rw-r--r--	root/root	usr/share/man/man1/lscpu.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzcat.1 -> xz.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzcmp.1 -> xzdiff.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzdiff.1 -> xzdiff.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzegrep.1 -> xzgrep.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzfgrep.1 -> xzgrep.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzgrep.1 -> xzgrep.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzless.1 -> xzless.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzma.1 -> xz.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzmadec.1 -> xzdec.1
+-rw-r--r--	root/root	usr/share/man/man1/lzmainfo.1
+lrwxrwxrwx	root/root	usr/share/man/man1/lzmore.1 -> xzmore.1
 -rw-r--r--	root/root	usr/share/man/man1/machinectl.1
 -rw-r--r--	root/root	usr/share/man/man1/man.1
 -rw-r--r--	root/root	usr/share/man/man1/man2html.1
@@ -4132,6 +4310,9 @@ lrwxrwxrwx	root/root	usr/share/man/man1/slogin.1 -> ./ssh.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cgtop.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-delta.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-detect-virt.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-escape.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-firstboot.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-firstboot.service.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-inhibit.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-machine-id-setup.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-notify.1
@@ -4141,6 +4322,7 @@ lrwxrwxrwx	root/root	usr/share/man/man1/slogin.1 -> ./ssh.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-tty-ask-password-agent.1
 -rw-r--r--	root/root	usr/share/man/man1/tabs.1.gz
 -rw-r--r--	root/root	usr/share/man/man1/tailf.1
+-rw-r--r--	root/root	usr/share/man/man1/tar.1
 -rw-r--r--	root/root	usr/share/man/man1/taskset.1
 -rw-r--r--	root/root	usr/share/man/man1/tbl.1
 -rw-r--r--	root/root	usr/share/man/man1/tfmtodit.1
@@ -4158,7 +4340,9 @@ lrwxrwxrwx	root/root	usr/share/man/man1/slogin.1 -> ./ssh.1
 -rw-r--r--	root/root	usr/share/man/man1/ul.1
 -rw-r--r--	root/root	usr/share/man/man1/unicode_start.1
 -rw-r--r--	root/root	usr/share/man/man1/unicode_stop.1
+lrwxrwxrwx	root/root	usr/share/man/man1/unlzma.1 -> xz.1
 -rw-r--r--	root/root	usr/share/man/man1/unshare.1
+lrwxrwxrwx	root/root	usr/share/man/man1/unxz.1 -> xz.1
 -rw-r--r--	root/root	usr/share/man/man1/uptime.1
 -rw-r--r--	root/root	usr/share/man/man1/usb-devices.1
 -rw-r--r--	root/root	usr/share/man/man1/utmpdump.1
@@ -4175,6 +4359,16 @@ lrwxrwxrwx	root/root	usr/share/man/man1/slogin.1 -> ./ssh.1
 -rw-r--r--	root/root	usr/share/man/man1/x509.1ssl
 -rw-r--r--	root/root	usr/share/man/man1/xargs.1
 -rw-r--r--	root/root	usr/share/man/man1/xmlwf.1
+-rw-r--r--	root/root	usr/share/man/man1/xz.1
+lrwxrwxrwx	root/root	usr/share/man/man1/xzcat.1 -> xz.1
+lrwxrwxrwx	root/root	usr/share/man/man1/xzcmp.1 -> xzdiff.1
+-rw-r--r--	root/root	usr/share/man/man1/xzdec.1
+-rw-r--r--	root/root	usr/share/man/man1/xzdiff.1
+lrwxrwxrwx	root/root	usr/share/man/man1/xzegrep.1 -> xzgrep.1
+lrwxrwxrwx	root/root	usr/share/man/man1/xzfgrep.1 -> xzgrep.1
+-rw-r--r--	root/root	usr/share/man/man1/xzgrep.1
+-rw-r--r--	root/root	usr/share/man/man1/xzless.1
+-rw-r--r--	root/root	usr/share/man/man1/xzmore.1
 -rw-r--r--	root/root	usr/share/man/man1/ypdomainname.1
 -rw-r--r--	root/root	usr/share/man/man1/zcat.1
 -rw-r--r--	root/root	usr/share/man/man1/zcmp.1
@@ -6944,6 +7138,7 @@ lrwxrwxrwx	root/root	usr/share/man/man3/SSL_CTX_set_psk_server_callback.3ssl -> 
 -rw-r--r--	root/root	usr/share/man/man3/SSL_CTX_set_session_id_context.3ssl
 -rw-r--r--	root/root	usr/share/man/man3/SSL_CTX_set_ssl_version.3ssl
 -rw-r--r--	root/root	usr/share/man/man3/SSL_CTX_set_timeout.3ssl
+-rw-r--r--	root/root	usr/share/man/man3/SSL_CTX_set_tlsext_ticket_key_cb.3ssl
 lrwxrwxrwx	root/root	usr/share/man/man3/SSL_CTX_set_tmp_dh.3ssl -> SSL_CTX_set_tmp_dh_callback.3ssl
 -rw-r--r--	root/root	usr/share/man/man3/SSL_CTX_set_tmp_dh_callback.3ssl
 lrwxrwxrwx	root/root	usr/share/man/man3/SSL_CTX_set_tmp_rsa.3ssl -> SSL_CTX_set_tmp_rsa_callback.3ssl
@@ -7450,7 +7645,9 @@ lrwxrwxrwx	root/root	usr/share/man/man5/host.deny.5.gz -> hosts_access.5.gz
 -rw-r--r--	root/root	usr/share/man/man5/sysusers.d.5
 -rw-r--r--	root/root	usr/share/man/man5/term.5.gz
 -rw-r--r--	root/root	usr/share/man/man5/terminfo.5.gz
+-rw-r--r--	root/root	usr/share/man/man5/timesyncd.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/tmpfiles.d.5
+-rw-r--r--	root/root	usr/share/man/man5/udev.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/vconsole.conf.5
 -rwxr-xr-x	root/root	usr/share/man/man5/wpa_supplicant.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/x509v3_config.5ssl
@@ -7577,6 +7774,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/reboot.8
 -rw-r--r--	root/root	usr/share/man/man8/resizepart.8
 -rw-r--r--	root/root	usr/share/man/man8/rmmod.8
+-rw-r--r--	root/root	usr/share/man/man8/rmt.8
 -rw-r--r--	root/root	usr/share/man/man8/route.8
 -rw-r--r--	root/root	usr/share/man/man8/rtcwake.8
 -rw-r--r--	root/root	usr/share/man/man8/runlevel.8
@@ -7609,6 +7807,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-backlight@.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-binfmt.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-binfmt.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-coredump.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-debug-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-efi-boot-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-fsck.8
@@ -11611,6 +11810,8 @@ drwxr-xr-x	root/root	usr/share/zsh/site-functions/
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_machinectl
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_sd_hosts_or_user_at_host
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_sd_machines
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_sd_outputmodes
+-rw-r--r--	root/root	usr/share/zsh/site-functions/_sd_unit_files
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_systemctl
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_systemd-analyze

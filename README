@@ -30,7 +30,7 @@ Quick build guide:
 
 Build system requirements:
 
-   Tested on Ubuntu 14.04 Minimal (64-bit x86) with the following additional
+   Tested on Ubuntu 15.04 Minimal (64-bit x86) with the following additional
    packages installed:
 
    $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
@@ -70,6 +70,4 @@ Filesystem layout:
 
 Maintainer:
 
-   Witold Pietraszek <witold.pietraszek@ixonos.com>
-   Martin Lund <martin.lund@ixonos.com>
-   Jesper Larsen <jesper.larsen@ixonos.com>
+   <none>

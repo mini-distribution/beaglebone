@@ -66,13 +66,14 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/systemd-detect-virt
 -rwxr-xr-x	root/root	usr/bin/systemd-escape
 -rwxr-xr-x	root/root	usr/bin/systemd-firstboot
+-rwxr-xr-x	root/root	usr/bin/systemd-hwdb
 -rwxr-xr-x	root/root	usr/bin/systemd-inhibit
 -rwxr-xr-x	root/root	usr/bin/systemd-machine-id-setup
 -rwxr-xr-x	root/root	usr/bin/systemd-notify
 -rwxr-xr-x	root/root	usr/bin/systemd-nspawn
 -rwxr-xr-x	root/root	usr/bin/systemd-path
 -rwxr-xr-x	root/root	usr/bin/systemd-run
-lrwxrwxrwx	root/root	usr/bin/systemd-stdio-bridge -> ../lib/systemd/systemd-bus-proxyd
+-rwxr-xr-x	root/root	usr/bin/systemd-stdio-bridge
 -rwxr-xr-x	root/root	usr/bin/systemd-sysusers
 -rwxr-xr-x	root/root	usr/bin/systemd-tmpfiles
 -rwxr-xr-x	root/root	usr/bin/systemd-tty-ask-password-agent
@@ -129,13 +130,13 @@ lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.11
 -rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.9.3
 lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.9.3
 lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.9.3
--rwxr-xr-x	root/root	usr/lib/libsystemd.so.0.4.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd.so.0 -> libsystemd.so.0.4.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd.so -> libsystemd.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libsystemd.so.0.6.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd.so.0 -> libsystemd.so.0.6.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd.so -> libsystemd.so.0.6.0
 -rwxr-xr-x	root/root	usr/lib/libudev.la
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.6.0
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.6.0
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.6.0
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.6.2
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.6.2
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.6.2
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gudev-1.0.pc
@@ -145,6 +146,7 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libsystemd-login.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libsystemd.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libudev.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/systemd.pc
 drwxr-xr-x	root/root	usr/lib/rpm/
 drwxr-xr-x	root/root	usr/lib/rpm/macros.d/
 -rw-r--r--	root/root	usr/lib/rpm/macros.d/macros.systemd
@@ -156,6 +158,8 @@ drwxr-xr-x	root/root	usr/lib/systemd/catalog/
 -rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.catalog
 -rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.fr.catalog
 -rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.it.catalog
+-rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.pl.catalog
+-rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.pt_BR.catalog
 -rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.ru.catalog
 drwxr-xr-x	root/root	usr/lib/systemd/network/
 -rw-r--r--	root/root	usr/lib/systemd/network/80-container-host0.network
@@ -165,14 +169,6 @@ drwxr-xr-x	root/root	usr/lib/systemd/system/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/basic.target
 -rw-r--r--	root/root	usr/lib/systemd/system/bluetooth.target
--rw-r--r--	root/root	usr/lib/systemd/system/busnames.target
-drwxr-xr-x	root/root	usr/lib/systemd/system/busnames.target.wants/
-lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.hostname1.busname -> ../org.freedesktop.hostname1.busname
-lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.locale1.busname -> ../org.freedesktop.locale1.busname
-lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.login1.busname -> ../org.freedesktop.login1.busname
-lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.machine1.busname -> ../org.freedesktop.machine1.busname
-lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.resolve1.busname -> ../org.freedesktop.resolve1.busname
-lrwxrwxrwx	root/root	usr/lib/systemd/system/busnames.target.wants/org.freedesktop.timedate1.busname -> ../org.freedesktop.timedate1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/console-getty.service
 -rw-r--r--	root/root	usr/lib/systemd/system/console-shell.service
 -rw-r--r--	root/root	usr/lib/systemd/system/container-getty@.service
@@ -197,17 +193,17 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/default.target -> multi-user.target
 -rw-r--r--	root/root	usr/lib/systemd/system/dev-hugepages.mount
 -rw-r--r--	root/root	usr/lib/systemd/system/dev-mqueue.mount
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-fsck
+-rwxr-xr-x	root/root	usr/lib/systemd/systemd-hibernate-resume
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-hostnamed
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-initctl
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-journald
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-localed
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-logind
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-machined
+-rwxr-xr-x	root/root	usr/lib/systemd/systemd-machine-id-commit
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-modules-load
--rwxr-xr-x	root/root	usr/lib/systemd/systemd-multi-seat-x
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-quotacheck
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-random-seed
--rwxr-xr-x	root/root	usr/lib/systemd/systemd-readahead
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-remount-fs
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-reply-password
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-resolved
@@ -233,6 +229,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system-generators/
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-fstab-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-getty-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-gpt-auto-generator
+-rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-hibernate-resume-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-rc-local-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-system-update-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-sysv-generator
@@ -260,6 +257,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system/local-fs.target.wants/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/local-fs.target.wants/systemd-remount-fs.service -> ../systemd-remount-fs.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/local-fs.target.wants/tmp.mount -> ../tmp.mount
 -rw-r--r--	root/root	usr/lib/systemd/system/machine.slice
+-rw-r--r--	root/root	usr/lib/systemd/system/machines.target
 -rw-r--r--	root/root	usr/lib/systemd/system/multi-user.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/multi-user.target.wants/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/multi-user.target.wants/getty.target -> ../getty.target
@@ -271,12 +269,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/multi-user.target.wants/systemd-user
 -rw-r--r--	root/root	usr/lib/systemd/system/network.target
 -rw-r--r--	root/root	usr/lib/systemd/system/nss-lookup.target
 -rw-r--r--	root/root	usr/lib/systemd/system/nss-user-lookup.target
--rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.hostname1.busname
--rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.locale1.busname
--rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.login1.busname
--rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.machine1.busname
--rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.resolve1.busname
--rw-r--r--	root/root	usr/lib/systemd/system/org.freedesktop.timedate1.busname
 -rw-r--r--	root/root	usr/lib/systemd/system/paths.target
 -rw-r--r--	root/root	usr/lib/systemd/system/poweroff.target
 drwxr-xr-x	root/root	usr/lib/systemd/system-preset/
@@ -321,6 +313,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system-sleep/
 -rw-r--r--	root/root	usr/lib/systemd/system/sockets.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/sockets.target.wants/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sockets.target.wants/systemd-initctl.socket -> ../systemd-initctl.socket
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sockets.target.wants/systemd-journald-audit.socket -> ../systemd-journald-audit.socket
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sockets.target.wants/systemd-journald-dev-log.socket -> ../systemd-journald-dev-log.socket
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sockets.target.wants/systemd-journald.socket -> ../systemd-journald.socket
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sockets.target.wants/systemd-shutdownd.socket -> ../systemd-shutdownd.socket
@@ -342,10 +335,11 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/sys-kernel-conf
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount -> ../sys-kernel-debug.mount
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-ask-password-console.path -> ../systemd-ask-password-console.path
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service -> ../systemd-binfmt.service
-lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-firstboot.service -> ../systemd-firstboot.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service -> ../systemd-hwdb-update.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journal-catalog-update.service -> ../systemd-journal-catalog-update.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service -> ../systemd-journald.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service -> ../systemd-journal-flush.service
+lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service -> ../systemd-machine-id-commit.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service -> ../systemd-modules-load.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service -> ../systemd-random-seed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service -> ../systemd-sysctl.service
@@ -353,7 +347,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-sysuser
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service -> ../systemd-tmpfiles-setup-dev.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service -> ../systemd-tmpfiles-setup.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service -> ../systemd-udevd.service
-lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-udev-hwdb-update.service -> ../systemd-udev-hwdb-update.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service -> ../systemd-udev-trigger.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-update-done.service -> ../systemd-update-done.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service -> ../systemd-update-utmp.service
@@ -367,16 +360,20 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-ask-password-wall.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-backlight@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-binfmt.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-bootchart.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-firstboot.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-fsck-root.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-fsck@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-halt.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-hibernate-resume@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-hibernate.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-hostnamed.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-hwdb-update.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-hybrid-sleep.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-initctl.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-initctl.socket
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-journal-catalog-update.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-journald-audit.socket
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-journald-dev-log.socket
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-journald.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-journald.socket
@@ -385,16 +382,12 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-localed.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-logind.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-machined.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-machine-id-commit.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-modules-load.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-nspawn@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-poweroff.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-quotacheck.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-random-seed.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-collect.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-done.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-done.timer
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-drop.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-readahead-replay.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-reboot.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-remount-fs.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-resolved.service
@@ -413,7 +406,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udevd-control.socket
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udevd-kernel.socket
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udevd.service
--rw-r--r--	root/root	usr/lib/systemd/system/systemd-udev-hwdb-update.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udev-settle.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-udev-trigger.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-update-done.service
@@ -434,7 +426,6 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/timers.target.wants/systemd-tmpfiles
 drwxr-xr-x	root/root	usr/lib/systemd/user/
 -rw-r--r--	root/root	usr/lib/systemd/user/basic.target
 lrwxrwxrwx	root/root	usr/lib/systemd/user/bluetooth.target -> ../system/bluetooth.target
-lrwxrwxrwx	root/root	usr/lib/systemd/user/busnames.target -> ../system/busnames.target
 -rw-r--r--	root/root	usr/lib/systemd/user/default.target
 -rw-r--r--	root/root	usr/lib/systemd/user/exit.target
 drwxr-xr-x	root/root	usr/lib/systemd/user-generators/
@@ -449,12 +440,10 @@ lrwxrwxrwx	root/root	usr/lib/systemd/user/timers.target -> ../system/timers.targ
 drwxr-xr-x	root/root	usr/lib/sysusers.d/
 -rw-r--r--	root/root	usr/lib/sysusers.d/basic.conf
 -rw-r--r--	root/root	usr/lib/sysusers.d/systemd.conf
--rw-r--r--	root/root	usr/lib/sysusers.d/systemd-remote.conf
 drwxr-xr-x	root/root	usr/lib/tmpfiles.d/
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/etc.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/systemd.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/systemd-nologin.conf
--rw-r--r--	root/root	usr/lib/tmpfiles.d/systemd-remote.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/tmp.conf
 -rw-r--r--	root/root	usr/lib/tmpfiles.d/var.conf
 drwxr-xr-x	root/root	usr/lib/udev/
@@ -474,10 +463,11 @@ drwxr-xr-x	root/root	usr/lib/udev/hwdb.d/
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-usb-classes.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-usb-vendor-model.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/60-keyboard.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/70-mouse.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/70-touchpad.hwdb
 -rwxr-xr-x	root/root	usr/lib/udev/mtd_probe
 drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/42-usb-hid-pm.rules
--rw-r--r--	root/root	usr/lib/udev/rules.d/50-firmware.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/50-udev-default.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-cdrom_id.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-drm.rules
@@ -490,7 +480,9 @@ drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/61-accelerometer.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/64-btrfs.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/70-mouse.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/70-power-switch.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/70-touchpad.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/70-uaccess.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/71-seat.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/75-net-description.rules
@@ -499,6 +491,7 @@ drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/78-sound-card.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/80-drivers.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/80-net-setup-link.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-vconsole.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/95-udev-late.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/99-systemd.rules
 -rwxr-xr-x	root/root	usr/lib/udev/scsi_id
@@ -549,15 +542,10 @@ drwxr-xr-x	root/root	usr/share/doc/systemd/
 -rw-r--r--	root/root	usr/share/doc/systemd/NEWS
 -rw-r--r--	root/root	usr/share/doc/systemd/PORTING-DBUS1
 -rw-r--r--	root/root	usr/share/doc/systemd/README
--rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.c
--rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.h
 -rw-r--r--	root/root	usr/share/doc/systemd/sd-shutdown.h
 drwxr-xr-x	root/root	usr/share/factory/
 drwxr-xr-x	root/root	usr/share/factory/etc/
 -rw-r--r--	root/root	usr/share/factory/etc/nsswitch.conf
-drwxr-xr-x	root/root	usr/share/factory/etc/pam.d/
--rw-r--r--	root/root	usr/share/factory/etc/pam.d/other
--rw-r--r--	root/root	usr/share/factory/etc/pam.d/system-auth
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/busctl.1
@@ -568,6 +556,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/localectl.1
 -rw-r--r--	root/root	usr/share/man/man1/loginctl.1
 -rw-r--r--	root/root	usr/share/man/man1/machinectl.1
+-rw-r--r--	root/root	usr/share/man/man1/networkctl.1
 -rw-r--r--	root/root	usr/share/man/man1/systemctl.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-analyze.1
@@ -582,6 +571,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/systemd-firstboot.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-firstboot.service.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-inhibit.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-machine-id-commit.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-machine-id-setup.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-notify.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-nspawn.1
@@ -679,28 +669,38 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_wait.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_listen_fds.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_LISTEN_FDS_START.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_machine_get_class.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_machine_get_ifindices.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_NOTICE.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_notify.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_notifyf.3
--rw-r--r--	root/root	usr/share/man/man3/sd_readahead.3
--rw-r--r--	root/root	usr/share/man/man3/sd-readahead.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_pid_notify.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_pid_notifyf.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_pid_notify_with_fds.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_WARNING.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_watchdog_enabled.3
 drwxr-xr-x	root/root	usr/share/man/man5/
 -rw-r--r--	root/root	usr/share/man/man5/binfmt.d.5
 -rw-r--r--	root/root	usr/share/man/man5/bootchart.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/bootchart.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/coredump.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/coredump.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/hostname.5
 -rw-r--r--	root/root	usr/share/man/man5/journald.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/journald.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/locale.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/localtime.5
 -rw-r--r--	root/root	usr/share/man/man5/logind.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/logind.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/machine-id.5
 -rw-r--r--	root/root	usr/share/man/man5/machine-info.5
 -rw-r--r--	root/root	usr/share/man/man5/modules-load.d.5
 -rw-r--r--	root/root	usr/share/man/man5/os-release.5
 -rw-r--r--	root/root	usr/share/man/man5/resolved.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/resolved.conf.d.5
+-rw-r--r--	root/root	usr/share/man/man5/sleep.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/sysctl.d.5
+-rw-r--r--	root/root	usr/share/man/man5/system.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.automount.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.device.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.exec.5
@@ -724,14 +724,18 @@ drwxr-xr-x	root/root	usr/share/man/man5/
 -rw-r--r--	root/root	usr/share/man/man5/systemd-user.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/sysusers.d.5
 -rw-r--r--	root/root	usr/share/man/man5/timesyncd.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/timesyncd.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/tmpfiles.d.5
 -rw-r--r--	root/root	usr/share/man/man5/udev.conf.5
+-rw-r--r--	root/root	usr/share/man/man5/user.conf.d.5
 -rw-r--r--	root/root	usr/share/man/man5/vconsole.conf.5
 drwxr-xr-x	root/root	usr/share/man/man7/
 -rw-r--r--	root/root	usr/share/man/man7/bootup.7
 -rw-r--r--	root/root	usr/share/man/man7/daemon.7
 -rw-r--r--	root/root	usr/share/man/man7/file-hierarchy.7
+-rw-r--r--	root/root	usr/share/man/man7/hwdb.7
 -rw-r--r--	root/root	usr/share/man/man7/kernel-command-line.7
+-rw-r--r--	root/root	usr/share/man/man7/systemd.generator.7
 -rw-r--r--	root/root	usr/share/man/man7/systemd.journal-fields.7
 -rw-r--r--	root/root	usr/share/man/man7/systemd.special.7
 -rw-r--r--	root/root	usr/share/man/man7/systemd.time.7
@@ -739,7 +743,10 @@ drwxr-xr-x	root/root	usr/share/man/man7/
 drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/halt.8
 -rw-r--r--	root/root	usr/share/man/man8/kernel-install.8
+-rw-r--r--	root/root	usr/share/man/man8/libnss_myhostname.so.2.8
+-rw-r--r--	root/root	usr/share/man/man8/libnss_mymachines.so.2.8
 -rw-r--r--	root/root	usr/share/man/man8/nss-myhostname.8
+-rw-r--r--	root/root	usr/share/man/man8/nss-mymachines.8
 -rw-r--r--	root/root	usr/share/man/man8/poweroff.8
 -rw-r--r--	root/root	usr/share/man/man8/reboot.8
 -rw-r--r--	root/root	usr/share/man/man8/runlevel.8
@@ -763,9 +770,13 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-getty-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-gpt-auto-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-halt.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-hibernate-resume.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-hibernate-resume-generator.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-hibernate-resume@.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hibernate.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hostnamed.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hostnamed.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-hwdb.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hybrid-sleep.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-initctl.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-initctl.service.8
@@ -781,6 +792,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-logind.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-machined.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-machined.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-machine-id-commit.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-modules-load.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-modules-load.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-poweroff.service.8
@@ -788,11 +800,6 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-quotacheck.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-random-seed.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-random-seed.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-readahead.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-readahead-collect.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-readahead-done.service.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-readahead-done.timer.8
--rw-r--r--	root/root	usr/share/man/man8/systemd-readahead-replay.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-reboot.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-remount-fs.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-remount-fs.service.8
@@ -812,6 +819,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-system-update-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-sysusers.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-sysusers.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-sysv-generator.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-timedated.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-timedated.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-timesyncd.8
@@ -835,17 +843,18 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/telinit.8
 -rw-r--r--	root/root	usr/share/man/man8/udevadm.8
 drwxr-xr-x	root/root	usr/share/pkgconfig/
--rw-r--r--	root/root	usr/share/pkgconfig/systemd.pc
 -rw-r--r--	root/root	usr/share/pkgconfig/udev.pc
 drwxr-xr-x	root/root	usr/share/polkit-1/
 drwxr-xr-x	root/root	usr/share/polkit-1/actions/
 -rw-r--r--	root/root	usr/share/polkit-1/actions/org.freedesktop.hostname1.policy
 -rw-r--r--	root/root	usr/share/polkit-1/actions/org.freedesktop.locale1.policy
 -rw-r--r--	root/root	usr/share/polkit-1/actions/org.freedesktop.login1.policy
+-rw-r--r--	root/root	usr/share/polkit-1/actions/org.freedesktop.machine1.policy
 -rw-r--r--	root/root	usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
 -rw-r--r--	root/root	usr/share/polkit-1/actions/org.freedesktop.timedate1.policy
 drwxr-xr-x	root/root	usr/share/systemd/
 -rw-r--r--	root/root	usr/share/systemd/kbd-model-map
+-rw-r--r--	root/root	usr/share/systemd/language-fallback-map
 drwxr-xr-x	root/root	usr/share/zsh/
 drwxr-xr-x	root/root	usr/share/zsh/site-functions/
 -rw-r--r--	root/root	usr/share/zsh/site-functions/_coredumpctl

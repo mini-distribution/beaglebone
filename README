@@ -28,6 +28,16 @@ Quick build guide:
    $ buildgear build fs
    $ buildgear build u-boot
 
+Prebuilt images:
+
+   For demo purpose, prebuilt images are available here:
+   http://mini-distribution.io/prebuilds/beaglebone
+
+Login details:
+
+    Username: root
+    Password: root
+
 Build system requirements:
 
    Tested on Ubuntu 15.04 Minimal (64-bit x86) with the following additional

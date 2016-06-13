@@ -40,8 +40,8 @@ Login details:
 
 Build system requirements:
 
-   Tested on Ubuntu 15.04 Minimal (64-bit x86) with the following additional
-   packages installed:
+   Tested on Ubuntu 16.04 (64-bit x86) with the following additional packages
+   installed:
 
    $ sudo apt-get install unzip mtd-utils groff bison flex gperf texinfo \
                           libtool automake libncurses5-dev gawk libexpat1-dev \

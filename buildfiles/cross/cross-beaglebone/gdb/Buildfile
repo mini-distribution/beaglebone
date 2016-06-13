@@ -1,0 +1,35 @@
+# Description: The GNU Debugger (GDB)
+# URL: http://sources.redhat.com/gdb
+# License: GPLv3+ GPLv2+ GFDL PD BSD LGPLv2+
+
+name=gdb
+version=7.4.1
+release=1
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2
+        00_all_ptrace_setsiginfo.patch
+        05_all_readline-headers.patch
+        gdb-disable-doc.patch)
+depends=(ncurses expat)
+
+build() {
+   cd $name-$version
+
+   patch -p1 < $SRC/00_all_ptrace_setsiginfo.patch
+   patch -p1 < $SRC/05_all_readline-headers.patch
+   patch -p1 < $SRC/gdb-disable-doc.patch
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-nls \
+               --disable-sim \
+               --without-x \
+               --disable-libada \
+               --disable-werror \
+               --with-expat
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   rm -rf $PKG/usr/share/info
+}

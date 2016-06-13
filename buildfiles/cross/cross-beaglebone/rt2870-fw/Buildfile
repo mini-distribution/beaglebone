@@ -1,0 +1,15 @@
+# Description: Firmware for RT2870/RT3070
+# URL: git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git
+
+name=rt2870fw
+version=X
+release=1
+source=(http://www.buildgear.org/mirror/$name.tar.xz)
+
+build() {
+
+   install -Dm644 $SRC/$name/rt2870.bin $PKG/lib/firmware/rt2870.bin
+
+   # Firmware also supports rt3070
+   ln -s /lib/firmware/rt2870.bin $PKG/lib/firmware/rt3070.bin
+}

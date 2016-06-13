@@ -1,32 +1,9 @@
-[submodule "buildfiles/cross/cross-extra"]
-	path = buildfiles/cross/cross-extra
-	url = git://github.com/mini-distribution/cross-extra.git
-#	url = git@github.com:mini-distribution/cross-extra.git
-[submodule "buildfiles/cross/cross-opt"]
-	path = buildfiles/cross/cross-opt
-	url = git://github.com/mini-distribution/cross-opt.git
-#	url = git@github.com:mini-distribution/cross-opt.git
 [submodule "buildfiles/cross/cross-core"]
 	path = buildfiles/cross/cross-core
-	url = git://github.com/mini-distribution/cross-core.git
-#	url = git@github.com:mini-distribution/cross-core.git
-[submodule "buildfiles/cross/cross-beaglebone"]
-	path = buildfiles/cross/cross-beaglebone
-	url = git://github.com/mini-distribution/cross-beaglebone.git
-#   url = git@github.com:mini-distribution/cross-beaglebone.git
-[submodule "buildfiles/native/native-beaglebone"]
-	path = buildfiles/native/native-beaglebone
-	url = git://github.com/mini-distribution/native-beaglebone.git
-#	url = git@github.com:mini-distribution/native-beaglebone.git
-[submodule "buildfiles/cross/cross-freedesktop"]
-	path = buildfiles/cross/cross-freedesktop
-	url = git://github.com/mini-distribution/cross-freedesktop.git
-#	url = git@github.com:mini-distribution/cross-freedesktop.git
-[submodule "buildfiles/native/native-freedesktop"]
-	path = buildfiles/native/native-freedesktop
-	url = git://github.com/mini-distribution/native-freedesktop.git
-#	url = git@github.com:mini-distribution/native-freedesktop.git
-[submodule "buildfiles/cross/cross-ti"]
-	path = buildfiles/cross/cross-ti
-	url = git://github.com/mini-distribution/cross-ti.git
-#	url = git@github.com:mini-distribution/cross-ti.git
+	url = https://github.com/mini-distribution/cross-core.git
+[submodule "buildfiles/cross/cross-opt"]
+	path = buildfiles/cross/cross-opt
+	url = https://github.com/mini-distribution/cross-opt.git
+[submodule "buildfiles/cross/cross-extra"]
+	path = buildfiles/cross/cross-extra
+	url = https://github.com/mini-distribution/cross-extra.git

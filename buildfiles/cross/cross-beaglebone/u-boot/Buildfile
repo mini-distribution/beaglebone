@@ -1,0 +1,19 @@
+# Description: U-boot - The universal bootloader
+# URL: http://www.denx.de/wiki/U-Boot
+
+name=u-boot
+version=2015.04
+release=1
+source=(ftp://ftp.denx.de/pub/u-boot/$name-$version.tar.bz2
+        uEnv.txt)
+
+build(){
+   cd $name-$version
+
+   make ARCH=arm CROSS_COMPILE=$HOST- am335x_evm_config
+   make -j $JOBS ARCH=arm CROSS_COMPILE=$HOST-
+
+   cp MLO $OUTPUT
+   cp u-boot.img $OUTPUT
+   cp $SRC/uEnv.txt $OUTPUT
+}

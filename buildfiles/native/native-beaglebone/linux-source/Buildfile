@@ -1,0 +1,18 @@
+# Description: The Linux kernel (taken from https://github.com/beagleboard/linux)
+# URL: http://www.kernel.org
+
+name=linux-source
+version=$KERNEL_VERSION
+release=1
+source=(http://mirror.mini-distribution.io/beaglebone/linux-$version-git63ebab4.tar.xz)
+options=(nostrip)
+
+build(){
+    mkdir -p $PKG/usr/src
+    mv linux-$version-git63ebab4 $PKG/usr/src/linux
+
+    cd $PKG/usr/src/linux
+
+    cp arch/arm/configs/bb.org_defconfig .config
+}
+

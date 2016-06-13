@@ -1,0 +1,41 @@
+# Description: The Linux kernel
+# URL: http://www.kernel.org
+
+name=linux
+version=$KERNEL_VERSION
+release=1
+depends=(native/linux-source)
+
+build(){
+   cd $NATIVE_SYSROOT/usr/src/linux
+
+   make -j $JOBS ARCH=arm CROSS_COMPILE=$HOST- zImage dtbs modules
+   make ARCH=arm CROSS_COMPILE=$HOST- INSTALL_MOD_PATH=$PKG modules_install
+
+   install -Dm644 arch/arm/boot/zImage \
+      $OUTPUT/boot/zImage
+   install -Dm644 arch/arm/boot/dts/am335x-bone.dtb \
+      $OUTPUT/boot/dtbs/am335x-bone.dtb
+   install -Dm644 arch/arm/boot/dts/am335x-boneblack.dtb \
+      $OUTPUT/boot/dtbs/am335x-boneblack.dtb
+
+   # Install firmware
+   mkdir -p $PKG/lib/firmware
+   cp firmware/am335x*.bin $PKG/lib/firmware
+
+   # Install built objects for external modules and debug
+   install -D     $PKG/lib/modules/$version/build/vmlinux \
+         $PKG/boot/vmlinux
+   install -Dm644 $PKG/lib/modules/$version/build/System.map \
+         $PKG/boot/System.map
+   install -Dm644 $PKG/lib/modules/$version/build/Module.symvers \
+         $PKG/usr/src/$name/Module.symvers
+
+   # Cleanup
+   rm $PKG/lib/modules/$version/{build,source}
+}
+
+check() {
+   # Test for preinstalled mkimage tool
+   check_tool mkimage
+}

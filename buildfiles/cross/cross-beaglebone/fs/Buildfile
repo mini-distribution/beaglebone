@@ -1,0 +1,40 @@
+# Description: A basic GNU/linux filesystem
+# URL: http://www.buildgear.org
+
+name=fs
+version=1.1
+release=1
+depends=(core
+         linux
+         connman
+         vim
+         rt2870fw
+         wpa_supplicant)
+
+options=(nostrip)
+
+build() {
+   # Copy fully populated sysroot
+   cp -a $SYSROOT/* $PKG
+
+   # Set host name
+   echo "beaglebone" > $PKG/etc/hostname
+
+   # Set login issue
+   echo -e "Beaglebone Mini Distribution $version\n" > $PKG/etc/issue
+
+   # Cleanup
+   rm -rf $PKG/usr/include
+   rm -rf $PKG/usr/lib/*.a
+   rm -rf $PKG/usr/lib/*.la
+
+   # Generate modules.dep
+   depmod -b $PKG $KERNEL_VERSION
+
+   # Create tarball
+   tar -C $PKG -Ipixz -cpf $OUTPUT/fs.tar.xz .
+}
+
+check() {
+   check_tool pixz "Available in Ubuntu package pixz"
+}
